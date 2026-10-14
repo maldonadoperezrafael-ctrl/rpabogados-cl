@@ -1,0 +1,202 @@
+---
+import 'aos/dist/aos.css';
+import { SITIO, datosEstructurados, urlCanonica } from '../lib/sitio';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = SITIO.descripcion } = Astro.props;
+const canonica = urlCanonica(Astro.url.pathname);
+const imagenSocial = `${SITIO.url}/og-rpabogados.png`;
+---
+
+<!doctype html>
+<html lang="es-CL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#12151B" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={SITIO.nombre} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonica} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITIO.nombre} />
+    <meta property="og:url" content={canonica} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imagenSocial} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="RP Abogados — Ayudamos a la gente" />
+    <meta property="og:locale" content="es_CL" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imagenSocial} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(datosEstructurados())} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Raleway', sans-serif;
+        color: #12151B;
+        background-color: #ffffff;
+        line-height: 1.8;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      h1 { font-weight: 300; letter-spacing: 1px; }
+      h2 { font-weight: 400; }
+      h3 { font-weight: 500; }
+
+      /* Menú móvil a pantalla completa */
+      .fullscreen-menu {
+        position: fixed;
+        inset: 0;
+        height: 100vh;
+        background-color: rgba(18, 21, 27, 0.98);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.5s;
+      }
+
+      .fullscreen-menu.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .fullscreen-menu nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+      }
+
+      .fullscreen-menu nav ul li {
+        margin: 1.5rem 0;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+      }
+
+      .fullscreen-menu.active nav ul li {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .fullscreen-menu nav ul li:nth-child(1) { transition-delay: 0.1s; }
+      .fullscreen-menu nav ul li:nth-child(2) { transition-delay: 0.15s; }
+      .fullscreen-menu nav ul li:nth-child(3) { transition-delay: 0.2s; }
+      .fullscreen-menu nav ul li:nth-child(4) { transition-delay: 0.25s; }
+      .fullscreen-menu nav ul li:nth-child(5) { transition-delay: 0.3s; }
+      .fullscreen-menu nav ul li:nth-child(6) { transition-delay: 0.35s; }
+
+      .fullscreen-menu nav ul li a {
+        color: #C5A880;
+        font-size: 1.75rem;
+        font-weight: 300;
+        text-decoration: none;
+        letter-spacing: 1px;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
+
+      .fullscreen-menu nav ul li a:hover,
+      .fullscreen-menu nav ul li a:focus-visible {
+        color: #E6CC9F;
+        text-shadow: 0 0 14px rgba(230, 204, 159, 0.65);
+        outline: none;
+      }
+
+      .menu-toggle {
+        width: 30px;
+        height: 22px;
+        position: relative;
+        cursor: pointer;
+        z-index: 10000;
+      }
+
+      .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #C5A880;
+        position: absolute;
+        transition: all 0.3s ease;
+      }
+
+      .menu-toggle span:nth-child(1) { top: 0; }
+      .menu-toggle span:nth-child(2) { top: 10px; }
+      .menu-toggle span:nth-child(3) { top: 20px; }
+
+      .menu-toggle.active span { background-color: #E6CC9F; }
+      .menu-toggle.active span:nth-child(1) { top: 10px; transform: rotate(45deg); }
+      .menu-toggle.active span:nth-child(2) { opacity: 0; }
+      .menu-toggle.active span:nth-child(3) { top: 10px; transform: rotate(-45deg); }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+
+    <script>
+      import AOS from 'aos';
+      AOS.init({
+        duration: 800,
+        easing: 'cubic-bezier(0.77, 0, 0.175, 1)',
+        once: true,
+        offset: 100,
+        disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      });
+
+      const menuToggle = document.querySelector('.menu-toggle');
+      const fullscreenMenu = document.querySelector('.fullscreen-menu');
+
+      if (menuToggle && fullscreenMenu) {
+        const setMenu = (abierto: boolean) => {
+          menuToggle.classList.toggle('active', abierto);
+          fullscreenMenu.classList.toggle('active', abierto);
+          menuToggle.setAttribute('aria-expanded', String(abierto));
+          menuToggle.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+          document.body.style.overflow = abierto ? 'hidden' : '';
+        };
+
+        menuToggle.addEventListener('click', () => setMenu(!fullscreenMenu.classList.contains('active')));
+        fullscreenMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && fullscreenMenu.classList.contains('active')) {
+            setMenu(false);
+            (menuToggle as HTMLElement).focus();
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

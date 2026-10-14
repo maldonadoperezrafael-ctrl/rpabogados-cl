@@ -1,0 +1,336 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MapaGoogle from '../components/MapaGoogle.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FormularioContacto from '../components/FormularioContacto.astro';
+---
+
+<Layout title="RP Abogados | Litigación Estratégica & Derecho Público | Santiago, Chile">
+  <Header />
+
+  <main class="pt-0">
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-[90vh] flex items-end overflow-hidden bg-[#181a1f]">
+      <div class="absolute inset-0">
+        <img 
+          src="/fotos/fondo-hormigon.webp" width="1920" height="1282" fetchpriority="high" decoding="async"
+          alt=""
+          class="w-full h-full object-cover object-center"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-transparent"></div>
+      </div>
+
+      <div class="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20 pt-24">
+        <div class="max-w-3xl">
+          <h1 class="font-cormorant text-white text-6xl md:text-8xl lg:text-9xl font-semibold leading-[0.9] mb-6 tracking-normal drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+            RP<br />ABOGADOS
+          </h1>
+
+          <div class="w-24 h-1 bg-oro mb-8 shadow-md"></div>
+
+          <p class="text-white/95 text-lg md:text-xl font-normal leading-relaxed max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+            Estudio jurídico orientado en litigación de alta complejidad, en juicios de derechos de daños, en delitos penales económicos-tributarios y de alta connotación social, contencioso administrativos, acciones constitucionales, derecho migratorio y derecho laboral de la empresa colectivo e individual. Desde Santiago y la Región de O'Higgins, asesoramos a personas, empresas e instituciones en los casos más desafiantes, con un enfoque estratégico, ético y orientado a resultados.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nuestra Filosofía -->
+    <section class="py-14 bg-slate-50 border-t border-b border-slate-200" id="filosofia">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Nuestra Filosofía</h2>
+          <div class="w-12 h-0.5 bg-[#C5A880] mx-auto mt-3"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-7 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm">
+            <span class="text-4xl md:text-5xl font-bold text-oro-oscuro block mb-3 tracking-tight">01</span>
+            <h3 class="text-xl font-bold text-slate-900 mb-2 leading-snug">Dirección Personalizada de Cada Causa</h3>
+            <div class="w-8 h-0.5 bg-slate-200 mb-3"></div>
+            <p class="text-slate-600 text-sm leading-relaxed text-left">
+              Conducción directa y estratégica de cada litigio a cargo de los socios de la firma, integrando análisis crítico y visión multidisciplinaria en cada etapa procesal.
+            </p>
+          </div>
+
+          <div class="bg-white p-7 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm">
+            <span class="text-4xl md:text-5xl font-bold text-oro-oscuro block mb-3 tracking-tight">02</span>
+            <h3 class="text-xl font-bold text-slate-900 mb-2 leading-snug">Fundamentación y Precisión Técnica</h3>
+            <div class="w-8 h-0.5 bg-slate-200 mb-3"></div>
+            <p class="text-slate-600 text-sm leading-relaxed text-left">
+              Construcción de argumentos de alto estándar técnico sustentados en el análisis exhaustivo de legislación especializada, doctrina y jurisprudencia consolidada.
+            </p>
+          </div>
+
+          <div class="bg-white p-7 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm">
+            <span class="text-4xl md:text-5xl font-bold text-oro-oscuro block mb-3 tracking-tight">03</span>
+            <h3 class="text-xl font-bold text-slate-900 mb-2 leading-snug">Comunicación Permanente y Confidencialidad</h3>
+            <div class="w-8 h-0.5 bg-slate-200 mb-3"></div>
+            <p class="text-slate-600 text-sm leading-relaxed text-left">
+              Información continua y transparente sobre los avances y escenarios de cada causa, bajo el más estricto resguardo ético y reserva profesional.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barra de Datos -->
+    <section class="bg-[#12151B] text-white py-10 border-t border-b border-white/10">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div>
+            <div class="text-3xl md:text-4xl font-light text-[#C5A880] mb-1">15+</div>
+            <div class="text-xs md:text-sm text-white/70">Años de Trayectoria Jurídica</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-light text-[#C5A880] mb-1">TS</div>
+            <div class="text-xs md:text-sm text-white/70">Suprema, Cortes y TC</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-light text-[#C5A880] mb-1">100%</div>
+            <div class="text-xs md:text-sm text-white/70">Conducción Directa de Socios</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-light text-[#C5A880] mb-1">RM-VI</div>
+            <div class="text-xs md:text-sm text-white/70">Santiago y Región de O'Higgins</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Áreas de Práctica -->
+    <section id="areas" class="py-12 bg-white">
+      <div class="text-center max-w-3xl mx-auto mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-oro-oscuro block mb-1">Especialización Jurídica</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Áreas de Práctica</h2>
+        <div class="w-12 h-0.5 bg-[#C5A880] mx-auto mt-3"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div class="relative h-92 overflow-hidden group cursor-pointer">
+          <img src="/fotos/area-civil.webp" alt="" width="800" height="437" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-black/60 group-hover:bg-black/45 transition-all duration-500"></div>
+          <div class="relative z-10 h-full flex flex-col justify-end p-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] mb-1">01 / Civil</span>
+            <h3 class="text-white text-xl font-semibold mb-2">Litigación Civil</h3>
+            <div class="w-12 h-0.5 bg-[#C5A880] mb-3"></div>
+            <ul class="text-white/90 text-xs space-y-1 opacity-90">
+              <li>• Particiones de herencias y comunidades</li>
+              <li>• Expropiaciones e indemnizaciones</li>
+              <li>• Responsabilidad contractual y extracontractual</li>
+              <li>• Controversias sobre inmuebles y bienes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="relative h-92 overflow-hidden group cursor-pointer">
+          <img src="/fotos/area-penal.webp" alt="" width="600" height="439" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-black/60 group-hover:bg-black/45 transition-all duration-500"></div>
+          <div class="relative z-10 h-full flex flex-col justify-end p-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] mb-1">02 / Penal</span>
+            <h3 class="text-white text-xl font-semibold mb-2">Litigación Penal &amp; Compliance</h3>
+            <div class="w-12 h-0.5 bg-[#C5A880] mb-3"></div>
+            <ul class="text-white/90 text-xs space-y-1 opacity-90">
+              <li>• Litigios penales de alta complejidad</li>
+              <li>• Delitos económicos, societarios y tributarios</li>
+              <li>• Querellas criminales y defensa penal</li>
+              <li>• Modelos de prevención del delito (Compliance)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="relative h-92 overflow-hidden group cursor-pointer">
+          <img src="/fotos/area-publico.webp" alt="" width="720" height="420" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-black/60 group-hover:bg-black/45 transition-all duration-500"></div>
+          <div class="relative z-10 h-full flex flex-col justify-end p-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] mb-1">03 / Público</span>
+            <h3 class="text-white text-xl font-semibold mb-2">Derecho Público &amp; Administrativo</h3>
+            <div class="w-12 h-0.5 bg-[#C5A880] mb-3"></div>
+            <ul class="text-white/90 text-xs space-y-1 opacity-90">
+              <li>• Contencioso administrativo y sanciones</li>
+              <li>• Recursos de protección y amparo</li>
+              <li>• Contratación pública (ChileCompra)</li>
+              <li>• Sumarios disciplinarios y régimen municipal</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="relative h-92 overflow-hidden group cursor-pointer">
+          <img src="/fotos/area-laboral.webp" alt="" width="900" height="592" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-black/60 group-hover:bg-black/45 transition-all duration-500"></div>
+          <div class="relative z-10 h-full flex flex-col justify-end p-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] mb-1">04 / Laboral</span>
+            <h3 class="text-white text-xl font-semibold mb-2">Litigación Laboral</h3>
+            <div class="w-12 h-0.5 bg-[#C5A880] mb-3"></div>
+            <ul class="text-white/90 text-xs space-y-1 opacity-90">
+              <li>• Juicios laborales de alta cuantía indemnizatoria</li>
+              <li>• Accidentes laborales y enfermedades profesionales</li>
+              <li>• Tutela laboral de derechos fundamentales</li>
+              <li>• Desvinculaciones de alta dirección y ejecutivos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Socios -->
+    <section id="equipo" class="py-14 bg-slate-50 border-t border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <span class="text-xs font-bold uppercase tracking-widest text-oro-oscuro block mb-1">Dirección Jurídica &amp; Litigación</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Socios del Estudio</h2>
+          <div class="w-12 h-0.5 bg-[#C5A880] mx-auto mt-3"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+          <article class="bg-white border border-slate-200 rounded-sm overflow-hidden shadow-sm flex flex-col">
+            <div class="relative h-96 w-full overflow-hidden bg-slate-900">
+              <img src="/fotos/foto_gerente.webp" alt="Rafael Pérez Maldonado" width="716" height="718" loading="lazy" decoding="async" class="w-full h-full object-cover object-top block" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-white text-xl font-bold leading-tight">Rafael Pérez Maldonado</h3>
+                <span class="text-[#C5A880] text-xs font-semibold uppercase tracking-wider block mt-1">Socio Fundador &bull; Director de Litigios</span>
+              </div>
+            </div>
+            <div class="p-6 flex flex-col flex-1 justify-between">
+              <div>
+                <span class="text-xs font-bold text-slate-800 block mb-2">Magíster en Derecho Público y Constitucional</span>
+                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                  Más de 15 años de ejercicio profesional ininterrumpido ante la Corte Suprema, Cortes de Apelaciones y el Tribunal Constitucional. Especialista en litigación estratégica civil indemnizatoria, derecho público y sancionatorio administrativo.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-slate-200 mt-6 flex justify-between items-center text-xs">
+                <a href="mailto:rafael@rpabogados.cl" class="text-slate-600 hover:text-oro-oscuro font-medium">rafael@rpabogados.cl</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-white border border-slate-200 rounded-sm overflow-hidden shadow-sm flex flex-col">
+            <div class="relative h-96 w-full overflow-hidden bg-slate-900">
+              <img src="/fotos/yerko-scheihing.webp" alt="Yerko Scheihing Sepúlveda" width="640" height="640" loading="lazy" decoding="async" class="w-full h-full object-cover object-top block" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-white text-xl font-bold leading-tight">Yerko Scheihing Sepúlveda</h3>
+                <span class="text-[#C5A880] text-xs font-semibold uppercase tracking-wider block mt-1">Socio &bull; Litigación Penal &amp; Compliance</span>
+              </div>
+            </div>
+            <div class="p-6 flex flex-col flex-1 justify-between">
+              <div>
+                <span class="text-xs font-bold text-slate-800 block mb-2">Magíster en Derecho Penal y Ciencias Penales (Pompeu Fabra, Barcelona)</span>
+                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                  Abogado litigante especializado en litigación penal compleja, derecho penal económico y juicio oral adversarial ante Juzgados de Garantía y Tribunales de Juicio Oral en lo Penal.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-slate-200 mt-6 flex justify-between items-center text-xs">
+                <a href="mailto:yerko@rpabogados.cl" class="text-slate-600 hover:text-oro-oscuro font-medium">yerko@rpabogados.cl</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Actualidad -->
+    <section id="actualidad" class="relative py-14 overflow-hidden bg-slate-100 border-t border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-10 pb-3 border-b border-slate-300">
+          <span class="text-xs font-bold uppercase tracking-widest text-oro-oscuro block mb-1">Radar Jurídico &amp; Jurisprudencia</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Actualidad de Tribunales &amp; Fallos Clave</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="bg-white border border-slate-200 rounded-sm p-6 flex flex-col justify-between shadow-sm">
+            <div>
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-oro-oscuro">Indemnizaciones</span>
+                <span class="text-xs font-semibold text-red-700 bg-red-50 px-2 py-0.5 rounded-sm">Fallo Clave</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
+                <a href="https://www.diarioconstitucional.cl/videos/jueces-deben-explicar-fundadamente-por-que-reducen-el-monto-de-la-indemnizacion-de-perjuicios-por-dano-moral-mas-alla-de-una-somera-debilidad-probatoria/" target="_blank" rel="noopener noreferrer" class="hover:text-oro-oscuro transition-colors">
+                  Los jueces ya no pueden rebajar indemnizaciones «al ojo»: tienen que fundamentar cada peso
+                </a>
+              </h3>
+              <p class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
+                La justicia fijó un criterio claro: si un juez decide bajar el monto que una persona pide por daño moral, no puede escudarse en frases vagas.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+              <span class="text-slate-500">Diario Constitucional</span>
+              <a href="https://www.diarioconstitucional.cl/videos/jueces-deben-explicar-fundadamente-por-que-reducen-el-monto-de-la-indemnizacion-de-perjuicios-por-dano-moral-mas-alla-de-una-somera-debilidad-probatoria/" target="_blank" rel="noopener noreferrer" class="text-oro-oscuro font-semibold hover:underline">Leer fallo &rarr;</a>
+            </div>
+          </article>
+
+          <article class="bg-white border border-slate-200 rounded-sm p-6 flex flex-col justify-between shadow-sm">
+            <div>
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-oro-oscuro">Redes Sociales</span>
+                <span class="text-xs font-semibold text-orange-800 bg-orange-50 px-2 py-0.5 rounded-sm">Corte Suprema</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
+                <a href="https://www.diarioconstitucional.cl/2026/04/21/corte-suprema-pone-freno-a-acusaciones-de-delitos-sin-respaldo-difundidas-en-redes-sociales/" target="_blank" rel="noopener noreferrer" class="hover:text-oro-oscuro transition-colors">
+                  La Suprema frena las «funas» en internet: prohibido acusar de delitos sin pruebas en redes
+                </a>
+              </h3>
+              <p class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
+                El máximo tribunal le puso límites a las denuncias en LinkedIn, Instagram y X. Dejó en claro que nadie puede acusar a otra persona de un delito sin una condena judicial que lo demuestre, ordenando borrar de inmediato este tipo de publicaciones.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+              <span class="text-slate-500">Diario Constitucional</span>
+              <a href="https://www.diarioconstitucional.cl/2026/04/21/corte-suprema-pone-freno-a-acusaciones-de-delitos-sin-respaldo-difundidas-en-redes-sociales/" target="_blank" rel="noopener noreferrer" class="text-oro-oscuro font-semibold hover:underline">Leer fallo &rarr;</a>
+            </div>
+          </article>
+
+          <article class="bg-white border border-slate-200 rounded-sm p-6 flex flex-col justify-between shadow-sm">
+            <div>
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-oro-oscuro">Libertad de Prensa</span>
+                <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-sm">Rol N° 7808-2026</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
+                <a href="https://www.diarioconstitucional.cl/2026/06/16/corte-suprema-descarta-eliminar-noticias-invocando-el-derecho-al-olvido/" target="_blank" rel="noopener noreferrer" class="hover:text-oro-oscuro transition-colors">
+                  No se pueden borrar noticias de juicios pasados invocando el «derecho al olvido»
+                </a>
+              </h3>
+              <p class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
+                La Suprema rechazó el reclamo de quienes pedían eliminar de internet noticias sobre antiguos juicios. La Corte dictaminó que si la información fue real y de interés público, el derecho a informar de la prensa está primero.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+              <span class="text-slate-500">Diario Constitucional</span>
+              <a href="https://www.diarioconstitucional.cl/2026/06/16/corte-suprema-descarta-eliminar-noticias-invocando-el-derecho-al-olvido/" target="_blank" rel="noopener noreferrer" class="text-oro-oscuro font-semibold hover:underline">Leer fallo &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto y Formulario -->
+    <section class="py-16 bg-white border-t border-slate-200" id="contacto">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <div class="lg:col-span-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-oro-oscuro block mb-1">Atención Presencial &amp; Telemática</span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-3">Contacto y Ubicación</h2>
+            <div class="w-12 h-0.5 bg-[#C5A880] mb-4"></div>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">Estudio jurídico ubicado en Providencia, Santiago.</p>
+            
+            <div class="mb-6 rounded overflow-hidden shadow-sm border border-slate-200">
+              <MapaGoogle alto="h-[260px]" />
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 bg-slate-50 border border-slate-200 p-8 rounded-sm shadow-sm">
+            <h3 class="text-xl font-bold text-slate-900 mb-1">Consulta Confidencial</h3>
+            <p class="text-xs text-slate-500 mb-5">Indique los antecedentes preliminares para la evaluación jurídica de su asunto.</p>
+
+            <FormularioContacto />
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>
