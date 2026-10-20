@@ -39,37 +39,35 @@ import FormularioContacto from '../components/FormularioContacto.astro';
       </div>
     </section>
 
-    <!-- Sede Pichilemu / Banner Radial y Logro Destacado del Viernes -->
+    <!-- Sede Pichilemu / Logro Destacado y Programa Radial -->
     <section id="sede-pichilemu" class="py-16 bg-[#12151B] border-t border-b border-white/10 text-white">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Noticia Destacada del Gran Logro del Viernes (Condena de casi 300 Millones) -->
+        <!-- Fallo Destacado Juzgado de Letras de Pichilemu -->
         <div class="bg-[#181a1f] border-2 border-[#C5A880] p-6 md:p-8 rounded-sm shadow-2xl mb-10 relative overflow-hidden">
-          <div class="absolute top-0 right-0 bg-[#C5A880] text-[#12151B] text-[10px] font-extrabold uppercase px-4 py-1 tracking-widest">
-            Resolución Destacada • Juzgado de Letras de Pichilemu
+          <div class="mb-3">
+            <span class="text-[11px] font-bold uppercase tracking-widest text-[#12151B] bg-[#C5A880] px-3 py-1 rounded-sm inline-block">
+              Resultado Judicial Destacado • Juzgado de Letras de Pichilemu
+            </span>
           </div>
           
-          <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-2">
-            Litigación Estratégica en Responsabilidad Civil &amp; Daños
-          </span>
           <h3 class="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">
-            Condena Histórica Superior a 299 Millones de Pesos por Atropello Fatal en Pichilemu
+            Condena Superior a $299 Millones por Siniestro Vial con Resultado Fatal en Pichilemu
           </h3>
-          <p class="text-white/85 text-sm md:text-base leading-relaxed mb-4">
-            Tras una rigurosa tramitación llevada adelante por nuestro equipo, el tribunal decretó la responsabilidad solidaria del conductor y del propietario del vehículo, fijando una indemnización integral por perjuicios patrimoniales y morales que supera los 299 millones de pesos. Una sentencia que reafirma con rigor técnico que la reparación íntegra del daño no es solo una expectativa, sino un estándar exigible a toda cadena de responsabilidad.
+          <p class="text-white/85 text-sm md:text-base leading-relaxed mb-5">
+            En sentencia definitiva dictada recientemente bajo la representación de nuestra firma, el tribunal acogió íntegramente nuestra tesis jurídica, condenando solidariamente al conductor y al propietario registral del vehículo al pago de casi 300 millones de pesos por concepto de lucro cesante y daño moral. Un pronunciamiento que consolida en la provincia el estándar más exigente de reparación integral frente a hechos ilícitos graves.
           </p>
-          <div class="flex flex-wrap gap-4 text-xs font-bold uppercase tracking-wider">
+          <div class="flex flex-wrap gap-6 text-xs font-bold uppercase tracking-wider pt-3 border-t border-white/10">
             <a href="https://www.expresodelacosta.cl/noticia/justicia-por-fatal-atropello-en-pichilemu-condenan-a-conductor-y-dueno-de-camioneta-a-pagar-mas-de-299-millones" target="_blank" rel="noopener noreferrer" class="text-[#C5A880] hover:underline">
-              &rarr; Ver cobertura en Expreso de la Costa
+              &rarr; Leer crónica en Expreso de la Costa
             </a>
-            <span class="text-white/40">•</span>
             <a href="https://www.diarioelmarino.cl/2026/10/16/juzgado-de-pichilemu-condena-a-conductor-y-propietario-de-camioneta-a-pagar-casi-300-millones-por-atropello-fatal/" target="_blank" rel="noopener noreferrer" class="text-[#C5A880] hover:underline">
-              &rarr; Ver cobertura en Diario El Marino
+              &rarr; Leer crónica en Diario El Marino
             </a>
           </div>
         </div>
 
-        <!-- Banner de Radio Corporación -->
+        <!-- Banner de Radio Corporación Pichilemu -->
         <div class="bg-[#181a1f] border border-slate-800 border-l-4 border-l-[#C5A880] p-8 md:p-10 shadow-xl rounded-sm">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
@@ -269,7 +267,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
               <div>
                 <span class="text-xs font-bold text-slate-800 block mb-2">Magíster en Derecho Público y Constitucional</span>
                 <p class="text-xs text-slate-600 leading-relaxed mb-4">
-                  Más de 15 años de ejercicio profesional ante los tribunales superiores de justicia del país. Especialista en responsabilidad civil contractual y extracontractual, derecho público, administrativo y derecho penal general.
+                  Más de 15 años de trayectoria profesional. Especialista en responsabilidad civil contractual y extracontractual, derecho público, contencioso administrativo y derecho penal general.
                 </p>
               </div>
               <div class="pt-4 border-t border-slate-200 mt-6 flex justify-between items-center text-xs">
@@ -303,7 +301,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
       </div>
     </section>
 
-    <!-- Actualidad / Radar Jurídico con Imágenes Nativas Estáticas y Rotación de 10 Días -->
+    <!-- Actualidad / Radar Jurídico con Imágenes Locales Autorizadas ('self') y Enlaces Verificados -->
     <section id="actualidad" class="relative py-14 overflow-hidden bg-slate-100 border-t border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-10 pb-3 border-b border-slate-300 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
@@ -312,34 +310,33 @@ import FormularioContacto from '../components/FormularioContacto.astro';
             <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Actualidad de Tribunales &amp; Fallos Clave</h2>
           </div>
           <button id="btn-rotar-fallos" type="button" class="bg-white border border-slate-300 text-slate-900 hover:text-oro-oscuro font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-sm shadow-sm transition-colors cursor-pointer">
-            ↻ Ver más fallos recientes
+            ↻ Siguientes fallos recientes
           </button>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
-          <!-- Tarjeta 1 -->
+          <!-- Nota 1 -->
           <article class="bg-white border border-slate-200 rounded-sm overflow-hidden shadow-sm flex flex-col justify-between">
             <div>
-              <div class="h-44 w-full overflow-hidden bg-slate-200">
-                <img id="news-img-0" src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="Fallo Judicial" class="w-full h-full object-cover" />
+              <div class="relative h-44 w-full overflow-hidden bg-slate-900">
+                <img id="news-img-0" src="/fotos/area-civil.webp" alt="" width="800" height="437" loading="lazy" decoding="async" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"></div>
+                <span id="news-cat-0" class="absolute bottom-3 left-4 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm bg-[#C5A880] text-slate-950">Indemnizaciones</span>
+                <span id="news-tag-0" class="absolute top-3 right-3 text-xs font-semibold text-red-700 bg-red-50 px-2.5 py-0.5 rounded-sm shadow-sm">Fallo Clave</span>
               </div>
-              <div class="p-6">
-                <div class="flex justify-between items-center mb-3">
-                  <span id="news-cat-0" class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-oro-oscuro">Indemnizaciones</span>
-                  <span id="news-tag-0" class="text-xs font-semibold text-red-700 bg-red-50 px-2 py-0.5 rounded-sm">Fallo Clave</span>
-                </div>
+              <div class="p-6 pb-4">
                 <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
                   <a id="news-link-0" href="https://www.diarioconstitucional.cl/videos/jueces-deben-explicar-fundadamente-por-que-reducen-el-monto-de-la-indemnizacion-de-perjuicios-por-dano-moral-mas-alla-de-una-somera-debilidad-probatoria/" target="_blank" rel="noopener noreferrer" class="hover:text-oro-oscuro transition-colors">
                     Los jueces ya no pueden rebajar indemnizaciones «al ojo»: tienen que fundamentar cada peso
                   </a>
                 </h3>
-                <p id="news-desc-0" class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
+                <p id="news-desc-0" class="text-xs text-slate-600 line-clamp-3 leading-relaxed">
                   La justicia fijó un criterio claro: si un juez decide bajar el monto que una persona pide por daño moral, no puede escudarse en frases vagas.
                 </p>
               </div>
             </div>
-            <div class="p-6 pt-0">
+            <div class="px-6 pb-6">
               <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
                 <span id="news-source-0" class="text-slate-500">Diario Constitucional</span>
                 <a id="news-more-0" href="https://www.diarioconstitucional.cl/videos/jueces-deben-explicar-fundadamente-por-que-reducen-el-monto-de-la-indemnizacion-de-perjuicios-por-dano-moral-mas-alla-de-una-somera-debilidad-probatoria/" target="_blank" rel="noopener noreferrer" class="text-oro-oscuro font-semibold hover:underline">Leer fallo &rarr;</a>
@@ -347,28 +344,27 @@ import FormularioContacto from '../components/FormularioContacto.astro';
             </div>
           </article>
 
-          <!-- Tarjeta 2 -->
+          <!-- Nota 2 -->
           <article class="bg-white border border-slate-200 rounded-sm overflow-hidden shadow-sm flex flex-col justify-between">
             <div>
-              <div class="h-44 w-full overflow-hidden bg-slate-200">
-                <img id="news-img-1" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Corte Suprema" class="w-full h-full object-cover" />
+              <div class="relative h-44 w-full overflow-hidden bg-slate-900">
+                <img id="news-img-1" src="/fotos/area-penal.webp" alt="" width="600" height="439" loading="lazy" decoding="async" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"></div>
+                <span id="news-cat-1" class="absolute bottom-3 left-4 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm bg-[#C5A880] text-slate-950">Redes Sociales</span>
+                <span id="news-tag-1" class="absolute top-3 right-3 text-xs font-semibold text-orange-800 bg-orange-50 px-2.5 py-0.5 rounded-sm shadow-sm">Corte Suprema</span>
               </div>
-              <div class="p-6">
-                <div class="flex justify-between items-center mb-3">
-                  <span id="news-cat-1" class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-oro-oscuro">Redes Sociales</span>
-                  <span id="news-tag-1" class="text-xs font-semibold text-orange-800 bg-orange-50 px-2 py-0.5 rounded-sm">Corte Suprema</span>
-                </div>
+              <div class="p-6 pb-4">
                 <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
                   <a id="news-link-1" href="https://www.diarioconstitucional.cl/2026/04/21/corte-suprema-pone-freno-a-acusaciones-de-delitos-sin-respaldo-difundidas-en-redes-sociales/" target="_blank" rel="noopener noreferrer" class="hover:text-oro-oscuro transition-colors">
                     La Suprema frena las «funas» en internet: prohibido acusar de delitos sin pruebas en redes
                   </a>
                 </h3>
-                <p id="news-desc-1" class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
-                  El máximo tribunal dejó en claro que nadie puede imputar delitos sin condena judicial, ordenando eliminar las publicaciones.
+                <p id="news-desc-1" class="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                  El máximo tribunal le puso límites a las denuncias en LinkedIn, Instagram y X. Nadie puede acusar a otra persona de un delito sin condena judicial que lo demuestre.
                 </p>
               </div>
             </div>
-            <div class="p-6 pt-0">
+            <div class="px-6 pb-6">
               <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
                 <span id="news-source-1" class="text-slate-500">Diario Constitucional</span>
                 <a id="news-more-1" href="https://www.diarioconstitucional.cl/2026/04/21/corte-suprema-pone-freno-a-acusaciones-de-delitos-sin-respaldo-difundidas-en-redes-sociales/" target="_blank" rel="noopener noreferrer" class="text-oro-oscuro font-semibold hover:underline">Leer fallo &rarr;</a>
@@ -376,28 +372,27 @@ import FormularioContacto from '../components/FormularioContacto.astro';
             </div>
           </article>
 
-          <!-- Tarjeta 3 -->
+          <!-- Nota 3 -->
           <article class="bg-white border border-slate-200 rounded-sm overflow-hidden shadow-sm flex flex-col justify-between">
             <div>
-              <div class="h-44 w-full overflow-hidden bg-slate-200">
-                <img id="news-img-2" src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" alt="Tribunales de Justicia" class="w-full h-full object-cover" />
+              <div class="relative h-44 w-full overflow-hidden bg-slate-900">
+                <img id="news-img-2" src="/fotos/area-publico.webp" alt="" width="720" height="420" loading="lazy" decoding="async" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"></div>
+                <span id="news-cat-2" class="absolute bottom-3 left-4 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm bg-[#C5A880] text-slate-950">Libertad de Prensa</span>
+                <span id="news-tag-2" class="absolute top-3 right-3 text-xs font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-sm shadow-sm">Rol N° 7808-2026</span>
               </div>
-              <div class="p-6">
-                <div class="flex justify-between items-center mb-3">
-                  <span id="news-cat-2" class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-oro-oscuro">Libertad de Prensa</span>
-                  <span id="news-tag-2" class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-sm">Rol N° 7808-2026</span>
-                </div>
+              <div class="p-6 pb-4">
                 <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
                   <a id="news-link-2" href="https://www.diarioconstitucional.cl/2026/06/16/corte-suprema-descarta-eliminar-noticias-invocando-el-derecho-al-olvido/" target="_blank" rel="noopener noreferrer" class="hover:text-oro-oscuro transition-colors">
                     No se pueden borrar noticias de juicios pasados invocando el «derecho al olvido»
                   </a>
                 </h3>
-                <p id="news-desc-2" class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
-                  La Corte dictaminó que si la información fue real y de interés público, el derecho a informar de la prensa está primero.
+                <p id="news-desc-2" class="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                  La Suprema rechazó el reclamo de quienes pedían eliminar de internet noticias sobre antiguos juicios. Si la información fue real y de interés público, prima la información.
                 </p>
               </div>
             </div>
-            <div class="p-6 pt-0">
+            <div class="px-6 pb-6">
               <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
                 <span id="news-source-2" class="text-slate-500">Diario Constitucional</span>
                 <a id="news-more-2" href="https://www.diarioconstitucional.cl/2026/06/16/corte-suprema-descarta-eliminar-noticias-invocando-el-derecho-al-olvido/" target="_blank" rel="noopener noreferrer" class="text-oro-oscuro font-semibold hover:underline">Leer fallo &rarr;</a>
@@ -409,7 +404,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
       </div>
     </section>
 
-    <!-- Contacto y Formulario (SOLO BOTÓN "ENVIAR" LIMPIO Y PROFESIONAL) -->
+    <!-- Contacto y Formulario -->
     <section class="py-16 bg-white border-t border-slate-200" id="contacto">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -426,36 +421,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
           <div class="lg:col-span-6 bg-slate-50 border border-slate-200 p-8 rounded-sm shadow-sm">
             <h3 class="text-xl font-bold text-slate-900 mb-1">Consulta Confidencial</h3>
             <p class="text-xs text-slate-500 mb-5">Indique los antecedentes preliminares para la evaluación jurídica de su asunto.</p>
-            
-            <!-- FORMULARIO LIMPIO: SOLO BOTÓN "ENVIAR" -->
-            <form action="#" method="POST" class="space-y-4">
-              <div>
-                <label for="nombre" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Nombre y Apellido</label>
-                <input type="text" id="nombre" name="nombre" required class="w-full bg-white border border-slate-300 rounded-sm px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#C5A880]" placeholder="Su nombre completo">
-              </div>
-
-              <div>
-                <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Correo Electrónico</label>
-                <input type="email" id="email" name="email" required class="w-full bg-white border border-slate-300 rounded-sm px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#C5A880]" placeholder="correo@ejemplo.com">
-              </div>
-
-              <div>
-                <label for="telefono" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Teléfono de Contacto</label>
-                <input type="tel" id="telefono" name="telefono" class="w-full bg-white border border-slate-300 rounded-sm px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#C5A880]" placeholder="+56 9 ...">
-              </div>
-
-              <div>
-                <label for="mensaje" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Detalle del Caso</label>
-                <textarea id="mensaje" name="mensaje" rows="4" required class="w-full bg-white border border-slate-300 rounded-sm px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#C5A880]" placeholder="Describa brevemente su situación jurídica..."></textarea>
-              </div>
-
-.              <div class="pt-2">
-                <button type="submit" class="w-full bg-[#12151B] text-[#C5A880] hover:bg-slate-900 font-bold text-xs uppercase tracking-widest py-4 px-6 rounded-sm transition-colors shadow-md text-center cursor-pointer">
-                  ENVIAR
-                </button>
-              </div>
-            </form>
-
+            <FormularioContacto />
           </div>
         </div>
       </div>
@@ -465,62 +431,120 @@ import FormularioContacto from '../components/FormularioContacto.astro';
   <Footer />
 </Layout>
 
-<script>
-  // Conexión del botón "Sede Pichilemu" del menú superior a la sección radial
-  const navLinks = document.querySelectorAll('a');
-  navLinks.forEach((link) => {
-    const txt = (link.textContent || '').toUpperCase();
-    if (txt.includes('PICHILEMU') && !link.id) {
-      link.setAttribute('href', '#sede-pichilemu');
-    }
-  });
-
-  // Base institucional de fallos judiciales verificados con URLs directas reales e imágenes autónomas
-  const poolFallos = [
-    { cat: 'Indemnizaciones', tag: 'Fallo Clave', title: 'Los jueces ya no pueden rebajar indemnizaciones «al ojo»: tienen que fundamentar cada peso del daño moral', desc: 'La justicia fijó un criterio claro: si un juez decide bajar el monto que una persona pide por daño moral, no puede escudarse en frases vagas.', url: 'https://www.diarioconstitucional.cl/videos/jueces-deben-explicar-fundadamente-por-que-reducen-el-monto-de-la-indemnizacion-de-perjuicios-por-dano-moral-mas-alla-de-una-somera-debilidad-probatoria/', source: 'Diario Constitucional', img: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80' },
-    { cat: 'Redes Sociales', tag: 'Corte Suprema', title: 'La Suprema frena las «funas» en internet: prohibido acusar de delitos sin pruebas en redes sociales', desc: 'El máximo tribunal dejó en claro que nadie puede imputar delitos sin condena judicial, ordenando eliminar las publicaciones.', url: 'https://www.diarioconstitucional.cl/2026/04/21/corte-suprema-pone-freno-a-acusaciones-de-delitos-sin-respaldo-difundidas-en-redes-sociales/', source: 'Diario Constitucional', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80' },
-    { cat: 'Libertad de Prensa', tag: 'Rol N° 7808-2026', title: 'No se pueden borrar noticias de juicios pasados invocando el «derecho al olvido»', desc: 'Para ver el detalle completo y los fundamentos del fallo en el portal jurídico de referencia.', url: 'https://www.diarioconstitucional.cl/2026/06/16/corte-suprema-descarta-eliminar-noticias-invocando-el-derecho-al-olvido/', source: 'Diario Constitucional', img: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80' },
-    { cat: 'Fraudes Bancarios', tag: 'Ley 20.009', title: 'Bancos deben restituir fondos defraudados en 5 días hábiles y no pueden culpar al cliente sin demanda judicial', desc: 'Las Cortes ratifican que las entidades financieras no pueden negarse unilateralmente al reembolso de hasta 35 UF alegando negligencia del usuario.', url: 'https://www.diarioconstitucional.cl/2025/06/17/corte-suprema-confirma-fallo-que-obliga-a-banco-a-restituir-fondos-por-fraude-electronico/', source: 'Diario Constitucional', img: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80' },
-    { cat: 'Derecho Inmobiliario', tag: 'Ley 21.633', title: 'Usurpación de terrenos constituye delito en flagrancia permanente que habilita desalojo inmediato con fuerza pública', desc: 'Los juzgados de garantía están facultados para decretar la restitución provisoria del inmueble ocupado ilegalmente en cualquier momento.', url: 'https://www.diarioconstitucional.cl/articulos/algunas-reflexiones-sobre-la-nueva-ley-n-21-633-que-regula-los-delitos-de-ocupacion-ilegal-de-inmuebles-y-los-efectos-de-la-medida-cautelar-real-especial-incorporada-en-dicho-articulado/', source: 'Actualidad Jurídica', img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80' },
-    { cat: 'Responsabilidad', tag: 'Corte Suprema', title: 'Abogado que deja vencer plazos fatales o abandona el procedimiento debe indemnizar la pérdida de la chance', desc: 'El máximo tribunal condena civilmente a letrados negligentes por frustrar la oportunidad legítima de obtener sentencia favorable.', url: 'https://www.diarioconstitucional.cl/2026/01/06/corte-de-santiago-fija-indemnizacion-de-120-millones-contra-clinica-por-perdida-de-oportunidad-tras-manejo-negligente-de-acv/', source: 'Poder Judicial / CS', img: 'https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=600&q=80' }
-  ];
-
-  // Motor estricto de rotación automática basada en ciclos exactos de 10 días corridos
-  const DIEZ_DIAS_MS = 1000 * 60 * 60 * 24 * 10;
-  const cicloDiezDias = Math.floor(Date.now() / DIEZ_DIAS_MS);
-  let currentIndex = (cicloDiezDias * 3) % poolFallos.length;
-
-  function renderFallos() {
-    for (let i = 0; i < 3; i++) {
-      const item = poolFallos[(currentIndex + i) % poolFallos.length];
-      const catEl = document.getElementById('news-cat-' + i);
-      const tagEl = document.getElementById('news-tag-' + i);
-      const linkEl = document.getElementById('news-link-' + i);
-      const descEl = document.getElementById('news-desc-' + i);
-      const srcEl = document.getElementById('news-source-' + i);
-      const moreEl = document.getElementById('news-more-' + i);
-      const imgEl = document.getElementById('news-img-' + i) as HTMLImageElement;
-
-      if (catEl && tagEl && linkEl && descEl) {
-        catEl.textContent = item.cat;
-        tagEl.textContent = item.tag;
-        linkEl.textContent = item.title;
-        linkEl.setAttribute('href', item.url);
-        descEl.textContent = item.desc;
-        if (srcEl) srcEl.textContent = item.source;
-        if (moreEl) moreEl.setAttribute('href', item.url);
-        if (imgEl && item.img) imgEl.setAttribute('src', item.img);
+<script is:inline>
+  (function() {
+    // 1. Conectar botón "Sede Pichilemu" del menú superior a la sección #sede-pichilemu
+    var navLinks = document.querySelectorAll('a');
+    for (var k = 0; k < navLinks.length; k++) {
+      var txt = (navLinks[k].textContent || '').toUpperCase();
+      if (txt.indexOf('PICHILEMU') !== -1 && !navLinks[k].id) {
+        navLinks[k].setAttribute('href', '#sede-pichilemu');
       }
     }
-  }
 
-  renderFallos();
+    // 2. Dejar únicamente "ENVIAR" en el botón del formulario de contacto
+    var submitBtns = document.querySelectorAll('#contacto button[type="submit"], #contacto button');
+    for (var b = 0; b < submitBtns.length; b++) {
+      var btnTxt = (submitBtns[b].textContent || '').toUpperCase();
+      if (btnTxt.indexOf('ENVIAR') !== -1) {
+        submitBtns[b].textContent = 'ENVIAR';
+      }
+    }
 
-  const btnRotar = document.getElementById('btn-rotar-fallos');
-  if (btnRotar) {
-    btnRotar.addEventListener('click', () => {
-      currentIndex = (currentIndex + 3) % poolFallos.length;
-      renderFallos();
-    });
-  }
+    // 3. Base de fallos con enlaces profundos verificados e imágenes locales autorizadas ('self')
+    var poolFallos = [
+      {
+        cat: 'Indemnizaciones',
+        tag: 'Fallo Clave',
+        title: 'Los jueces ya no pueden rebajar indemnizaciones «al ojo»: tienen que fundamentar cada peso',
+        desc: 'La justicia fijó un criterio claro: si un juez decide bajar el monto que una persona pide por daño moral, no puede escudarse en frases vagas.',
+        url: 'https://www.diarioconstitucional.cl/videos/jueces-deben-explicar-fundadamente-por-que-reducen-el-monto-de-la-indemnizacion-de-perjuicios-por-dano-moral-mas-alla-de-una-somera-debilidad-probatoria/',
+        source: 'Diario Constitucional',
+        img: '/fotos/area-civil.webp'
+      },
+      {
+        cat: 'Redes Sociales',
+        tag: 'Corte Suprema',
+        title: 'La Suprema frena las «funas» en internet: prohibido acusar de delitos sin pruebas en redes',
+        desc: 'El máximo tribunal le puso límites a las denuncias en LinkedIn, Instagram y X. Nadie puede acusar a otra persona de un delito sin una condena judicial que lo demuestre.',
+        url: 'https://www.diarioconstitucional.cl/2026/04/21/corte-suprema-pone-freno-a-acusaciones-de-delitos-sin-respaldo-difundidas-en-redes-sociales/',
+        source: 'Diario Constitucional',
+        img: '/fotos/area-penal.webp'
+      },
+      {
+        cat: 'Libertad de Prensa',
+        tag: 'Rol N° 7808-2026',
+        title: 'No se pueden borrar noticias de juicios pasados invocando el «derecho al olvido»',
+        desc: 'La Suprema rechazó el reclamo de quienes pedían eliminar de internet noticias sobre antiguos juicios. Si la información fue real y de interés público, el derecho a informar está primero.',
+        url: 'https://www.diarioconstitucional.cl/2026/06/16/corte-suprema-descarta-eliminar-noticias-invocando-el-derecho-al-olvido/',
+        source: 'Diario Constitucional',
+        img: '/fotos/area-publico.webp'
+      },
+      {
+        cat: 'Responsabilidad Civil',
+        tag: 'Juzgado de Pichilemu',
+        title: 'Condenan solidariamente a conductor y propietario de camioneta a pagar casi $300 millones por atropello fatal',
+        desc: 'El Juzgado de Letras de Pichilemu acogió la demanda indemnizatoria por lucro cesante y daño moral tras acreditar la infracción a las normas del tránsito.',
+        url: 'https://www.diarioelmarino.cl/2026/10/16/juzgado-de-pichilemu-condena-a-conductor-y-propietario-de-camioneta-a-pagar-casi-300-millones-por-atropello-fatal/',
+        source: 'Diario El Marino',
+        img: '/fotos/area-laboral.webp'
+      },
+      {
+        cat: 'Derecho de Daños',
+        tag: 'Región de O\'Higgins',
+        title: 'Justicia por fatal atropello en Pichilemu: fallo ordena indemnización superior a $299 millones',
+        desc: 'Sentencia establece la responsabilidad civil solidaria del dueño del vehículo involucrado, fijando indemnizaciones integrales para la familia afectada.',
+        url: 'https://www.expresodelacosta.cl/noticia/justicia-por-fatal-atropello-en-pichilemu-condenan-a-conductor-y-dueno-de-camioneta-a-pagar-mas-de-299-millones',
+        source: 'Expreso de la Costa',
+        img: '/fotos/fondo-hormigon.webp'
+      },
+      {
+        cat: 'Derecho Inmobiliario',
+        tag: 'Ley N° 21.633',
+        title: 'Alcances de la Ley N° 21.633 sobre delitos de ocupación ilegal de inmuebles y restitución anticipada',
+        desc: 'Análisis de la flagrancia permanente en usurpaciones y los efectos de la medida cautelar real de desalojo inmediato con auxilio de la fuerza pública.',
+        url: 'https://www.diarioconstitucional.cl/articulos/algunas-reflexiones-sobre-la-nueva-ley-n-21-633-que-regula-los-delitos-de-ocupacion-ilegal-de-inmuebles-y-los-efectos-de-la-medida-cautelar-real-especial-incorporada-en-dicho-articulado/',
+        source: 'Diario Constitucional',
+        img: '/fotos/area-civil.webp'
+      }
+    ];
+
+    var DIEZ_DIAS_MS = 1000 * 60 * 60 * 24 * 10;
+    var ciclo = Math.floor(Date.now() / DIEZ_DIAS_MS);
+    var currentIndex = (ciclo * 3) % poolFallos.length;
+
+    function renderFallos() {
+      for (var i = 0; i < 3; i++) {
+        var item = poolFallos[(currentIndex + i) % poolFallos.length];
+        var catEl = document.getElementById('news-cat-' + i);
+        var tagEl = document.getElementById('news-tag-' + i);
+        var linkEl = document.getElementById('news-link-' + i);
+        var descEl = document.getElementById('news-desc-' + i);
+        var srcEl = document.getElementById('news-source-' + i);
+        var moreEl = document.getElementById('news-more-' + i);
+        var imgEl = document.getElementById('news-img-' + i);
+
+        if (catEl && tagEl && linkEl && descEl) {
+          catEl.textContent = item.cat;
+          tagEl.textContent = item.tag;
+          linkEl.textContent = item.title;
+          linkEl.setAttribute('href', item.url);
+          descEl.textContent = item.desc;
+          if (srcEl) srcEl.textContent = item.source;
+          if (moreEl) moreEl.setAttribute('href', item.url);
+          if (imgEl && item.img) imgEl.setAttribute('src', item.img);
+        }
+      }
+    }
+
+    renderFallos();
+
+    var btnRotar = document.getElementById('btn-rotar-fallos');
+    if (btnRotar) {
+      btnRotar.addEventListener('click', function() {
+        currentIndex = (currentIndex + 3) % poolFallos.length;
+        renderFallos();
+      });
+    }
+  })();
 </script>
