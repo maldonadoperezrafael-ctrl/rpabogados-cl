@@ -10,7 +10,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
   <Header />
 
   <main class="pt-0">
-    <!-- Hero Section -->
+    <!-- Hero Section (Sin el botón radial de portada) -->
     <section id="inicio" class="relative min-h-[90vh] flex items-end overflow-hidden bg-[#181a1f]">
       <div class="absolute inset-0">
         <img src="/fotos/fondo-hormigon.webp" width="1920" height="1282" fetchpriority="high" decoding="async" alt="" class="w-full h-full object-cover object-center" />
@@ -25,16 +25,9 @@ import FormularioContacto from '../components/FormularioContacto.astro';
 
           <div class="w-24 h-1 bg-oro mb-8 shadow-md"></div>
 
-          <p class="text-white/95 text-lg md:text-xl font-normal leading-relaxed max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] mb-8">
+          <p class="text-white/95 text-lg md:text-xl font-normal leading-relaxed max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
             Estudio jurídico orientado en litigación de alta complejidad, en juicios de derechos de daños, en delitos penales económicos-tributarios y de alta connotación social, contencioso administrativos, acciones constitucionales, derecho migratorio y derecho laboral de la empresa colectivo e individual. Desde Santiago y la Región de O'Higgins, asesoramos a personas, empresas e instituciones en los casos más desafiantes, con un enfoque estratégico, ético y orientado a resultados.
           </p>
-
-          <!-- Botón Ejecutivo en Portada -->
-          <div class="pt-2">
-            <a href="https://www.radiocorporacionpichilemu.net/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-[#C5A880] text-[#12151B] font-bold text-xs uppercase tracking-widest px-6 py-4 rounded-sm shadow-md hover:bg-[#b2946d] transition-colors">
-              <span>📻 Programa en Vivo: Miércoles y Viernes 11:30 hrs (Radio Corporación 97.7 FM)</span>
-            </a>
-          </div>
         </div>
       </div>
     </section>
@@ -301,7 +294,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
       </div>
     </section>
 
-    <!-- Actualidad / Radar Jurídico con Imágenes Locales Autorizadas ('self') y Enlaces Verificados -->
+    <!-- Actualidad / Radar Jurídico -->
     <section id="actualidad" class="relative py-14 overflow-hidden bg-slate-100 border-t border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-10 pb-3 border-b border-slate-300 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
@@ -429,30 +422,29 @@ import FormularioContacto from '../components/FormularioContacto.astro';
   </main>
 
   <Footer />
-</Layout>
 
-<script is:inline>
-  (function() {
+  <script>
     // 1. Conectar botón "Sede Pichilemu" del menú superior a la sección #sede-pichilemu
-    var navLinks = document.querySelectorAll('a');
-    for (var k = 0; k < navLinks.length; k++) {
-      var txt = (navLinks[k].textContent || '').toUpperCase();
-      if (txt.indexOf('PICHILEMU') !== -1 && !navLinks[k].id) {
-        navLinks[k].setAttribute('href', '#sede-pichilemu');
+    const navLinks = document.querySelectorAll('a');
+    navLinks.forEach((link) => {
+      const txt = (link.textContent || '').toUpperCase();
+      if (txt.includes('PICHILEMU') && !link.id) {
+        link.setAttribute('href', '#sede-pichilemu');
       }
-    }
+    });
 
-    // 2. Dejar únicamente "ENVIAR" en el botón del formulario de contacto
-    var submitBtns = document.querySelectorAll('#contacto button[type="submit"], #contacto button');
-    for (var b = 0; b < submitBtns.length; b++) {
-      var btnTxt = (submitBtns[b].textContent || '').toUpperCase();
-      if (btnTxt.indexOf('ENVIAR') !== -1) {
-        submitBtns[b].textContent = 'ENVIAR';
+    // 2. Reemplazar el texto del botón de FormularioContacto por "Envía tu Consulta"
+    const submitBtns = document.querySelectorAll('#contacto button, #contacto input[type="submit"]');
+    submitBtns.forEach((btn) => {
+      if (btn.tagName === 'INPUT') {
+        btn.setAttribute('value', 'Envía tu Consulta');
+      } else {
+        btn.textContent = 'Envía tu Consulta';
       }
-    }
+    });
 
-    // 3. Base de fallos con enlaces profundos verificados e imágenes locales autorizadas ('self')
-    var poolFallos = [
+    // 3. Base de fallos con enlaces profundos verificados e imágenes locales ('self')
+    const poolFallos = [
       {
         cat: 'Indemnizaciones',
         tag: 'Fallo Clave',
@@ -509,20 +501,20 @@ import FormularioContacto from '../components/FormularioContacto.astro';
       }
     ];
 
-    var DIEZ_DIAS_MS = 1000 * 60 * 60 * 24 * 10;
-    var ciclo = Math.floor(Date.now() / DIEZ_DIAS_MS);
-    var currentIndex = (ciclo * 3) % poolFallos.length;
+    const DIEZ_DIAS_MS = 1000 * 60 * 60 * 24 * 10;
+    const ciclo = Math.floor(Date.now() / DIEZ_DIAS_MS);
+    let currentIndex = (ciclo * 3) % poolFallos.length;
 
     function renderFallos() {
-      for (var i = 0; i < 3; i++) {
-        var item = poolFallos[(currentIndex + i) % poolFallos.length];
-        var catEl = document.getElementById('news-cat-' + i);
-        var tagEl = document.getElementById('news-tag-' + i);
-        var linkEl = document.getElementById('news-link-' + i);
-        var descEl = document.getElementById('news-desc-' + i);
-        var srcEl = document.getElementById('news-source-' + i);
-        var moreEl = document.getElementById('news-more-' + i);
-        var imgEl = document.getElementById('news-img-' + i);
+      for (let i = 0; i < 3; i++) {
+        const item = poolFallos[(currentIndex + i) % poolFallos.length];
+        const catEl = document.getElementById('news-cat-' + i);
+        const tagEl = document.getElementById('news-tag-' + i);
+        const linkEl = document.getElementById('news-link-' + i);
+        const descEl = document.getElementById('news-desc-' + i);
+        const srcEl = document.getElementById('news-source-' + i);
+        const moreEl = document.getElementById('news-more-' + i);
+        const imgEl = document.getElementById('news-img-' + i);
 
         if (catEl && tagEl && linkEl && descEl) {
           catEl.textContent = item.cat;
@@ -539,12 +531,12 @@ import FormularioContacto from '../components/FormularioContacto.astro';
 
     renderFallos();
 
-    var btnRotar = document.getElementById('btn-rotar-fallos');
+    const btnRotar = document.getElementById('btn-rotar-fallos');
     if (btnRotar) {
-      btnRotar.addEventListener('click', function() {
+      btnRotar.addEventListener('click', () => {
         currentIndex = (currentIndex + 3) % poolFallos.length;
         renderFallos();
       });
     }
-  })();
-</script>
+  </script>
+</Layout>
