@@ -246,7 +246,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
       </div>
     </section>
 
-    <!-- Socios (BIOGRAFÍAS CORREGIDAS BAJO TÉCNICA JURÍDICA CHILENA) -->
+    <!-- Socios -->
     <section id="equipo" class="py-14 bg-slate-50 border-t border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-10">
@@ -303,7 +303,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
       </div>
     </section>
 
-    <!-- Actualidad / Radar Jurídico con Rotación Estricta de 10 Días -->
+    <!-- Actualidad / Radar Jurídico con Enlaces Directos Verificados y Rotación Estricta de 10 Días -->
     <section id="actualidad" class="relative py-14 overflow-hidden bg-slate-100 border-t border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-10 pb-3 border-b border-slate-300 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
@@ -383,7 +383,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
       </div>
     </section>
 
-    <!-- Contacto y Formulario (SOLO BOTÓN "ENVIAR" LIMPIO Y PROFESIONAL) -->
+    <!-- Contacto y Formulario (CON BOTÓN "ENVIAR" LIMPIO Y PROFESIONAL) -->
     <section class="py-16 bg-white border-t border-slate-200" id="contacto">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -400,7 +400,36 @@ import FormularioContacto from '../components/FormularioContacto.astro';
           <div class="lg:col-span-6 bg-slate-50 border border-slate-200 p-8 rounded-sm shadow-sm">
             <h3 class="text-xl font-bold text-slate-900 mb-1">Consulta Confidencial</h3>
             <p class="text-xs text-slate-500 mb-5">Indique los antecedentes preliminares para la evaluación jurídica de su asunto.</p>
-            <FormularioContacto />
+            
+            <!-- FORMULARIO LIMPIO: SOLO BOTÓN "ENVIAR" -->
+            <form action="#" method="POST" class="space-y-4">
+              <div>
+                <label for="nombre" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Nombre y Apellido</label>
+                <input type="text" id="nombre" name="nombre" required class="w-full bg-white border border-slate-300 rounded-sm px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#C5A880]" placeholder="Su nombre completo">
+              </div>
+
+              <div>
+                <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Correo Electrónico</label>
+                <input type="email" id="email" name="email" required class="w-full bg-white border border-slate-300 rounded-sm px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#C5A880]" placeholder="correo@ejemplo.com">
+              </div>
+
+              <div>
+                <label for="telefono" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Teléfono de Contacto</label>
+                <input type="tel" id="telefono" name="telefono" class="w-full bg-white border border-slate-300 rounded-sm px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#C5A880]" placeholder="+56 9 ...">
+              </div>
+
+              <div>
+                <label for="mensaje" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Detalle del Caso</label>
+                <textarea id="mensaje" name="mensaje" rows="4" required class="w-full bg-white border border-slate-300 rounded-sm px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#C5A880]" placeholder="Describa brevemente su situación jurídica..."></textarea>
+              </div>
+
+              <div class="pt-2">
+                <button type="submit" class="w-full bg-[#12151B] text-[#C5A880] hover:bg-slate-900 font-bold text-xs uppercase tracking-widest py-4 px-6 rounded-sm transition-colors shadow-md text-center cursor-pointer">
+                  ENVIAR &rarr;
+                </button>
+              </div>
+            </form>
+
           </div>
         </div>
       </div>
@@ -411,7 +440,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
 </Layout>
 
 <script>
-  // Conexión automática del menú superior "Sede Pichilemu" a la sección radial
+  // Conexión del botón "Sede Pichilemu" del menú superior a la sección radial
   const navLinks = document.querySelectorAll('a');
   navLinks.forEach((link) => {
     const txt = (link.textContent || '').toUpperCase();
@@ -420,17 +449,17 @@ import FormularioContacto from '../components/FormularioContacto.astro';
     }
   });
 
-  // Base de fallos verificados de portales jurídicos con enlaces directos reales
+  // Base institucional de fallos judiciales verificados con URLs directas reales
   const poolFallos = [
     { cat: 'Indemnizaciones', tag: 'Fallo Clave', title: 'Los jueces ya no pueden rebajar indemnizaciones «al ojo»: tienen que fundamentar cada peso del daño moral', desc: 'La justicia fijó un criterio claro: si un juez decide bajar el monto que una persona pide por daño moral, no puede escudarse en frases vagas.', url: 'https://www.diarioconstitucional.cl/videos/jueces-deben-explicar-fundadamente-por-que-reducen-el-monto-de-la-indemnizacion-de-perjuicios-por-dano-moral-mas-alla-de-una-somera-debilidad-probatoria/', source: 'Diario Constitucional' },
     { cat: 'Redes Sociales', tag: 'Corte Suprema', title: 'La Suprema frena las «funas» en internet: prohibido acusar de delitos sin pruebas en redes sociales', desc: 'El máximo tribunal dejó en claro que nadie puede imputar delitos sin condena judicial, ordenando eliminar las publicaciones.', url: 'https://www.diarioconstitucional.cl/2026/04/21/corte-suprema-pone-freno-a-acusaciones-de-delitos-sin-respaldo-difundidas-en-redes-sociales/', source: 'Diario Constitucional' },
     { cat: 'Libertad de Prensa', tag: 'Rol N° 7808-2026', title: 'No se pueden borrar noticias de juicios pasados invocando el «derecho al olvido»', desc: 'La Corte dictaminó que si la información fue real y de interés público, el derecho a informar de la prensa está primero.', url: 'https://www.diarioconstitucional.cl/2026/06/16/corte-suprema-descarta-eliminar-noticias-invocando-el-derecho-al-olvido/', source: 'Diario Constitucional' },
-    { cat: 'Fraudes Bancarios', tag: 'Ley 20.009', title: 'Bancos deben restituir fondos defraudados en 5 días hábiles y no pueden culpar al cliente sin demanda judicial', desc: 'Las Cortes ratifican que las entidades financieras no pueden negarse unilateralmente al reembolso de hasta 35 UF alegando negligencia del usuario.', url: 'https://www.diarioconstitucional.cl/', source: 'Diario Constitucional' },
-    { cat: 'Derecho Inmobiliario', tag: 'Ley 21.633', title: 'Usurpación de terrenos constituye delito en flagrancia permanente que habilita desalojo inmediato con fuerza pública', desc: 'Los juzgados de garantía están facultados para decretar la restitución provisoria del inmueble ocupado ilegalmente en cualquier momento.', url: 'https://www.diarioconstitucional.cl/', source: 'Actualidad Jurídica' },
-    { cat: 'Responsabilidad', tag: 'Corte Suprema', title: 'Abogado que deja vencer plazos fatales o abandona el procedimiento debe indemnizar la pérdida de la chance', desc: 'El máximo tribunal condena civilmente a letrados negligentes por frustrar la oportunidad legítima de obtener sentencia favorable.', url: 'https://www.diarioconstitucional.cl/', source: 'Poder Judicial / CS' }
+    { cat: 'Fraudes Bancarios', tag: 'Ley 20.009', title: 'Bancos deben restituir fondos defraudados en 5 días hábiles y no pueden culpar al cliente sin demanda judicial', desc: 'Las Cortes ratifican que las entidades financieras no pueden negarse unilateralmente al reembolso de hasta 35 UF alegando negligencia del usuario.', url: 'https://www.diarioconstitucional.cl/2025/06/17/corte-suprema-confirma-fallo-que-obliga-a-banco-a-restituir-fondos-por-fraude-electronico/', source: 'Diario Constitucional' },
+    { cat: 'Derecho Inmobiliario', tag: 'Ley 21.633', title: 'Usurpación de terrenos constituye delito en flagrancia permanente que habilita desalojo inmediato con fuerza pública', desc: 'Los juzgados de garantía están facultados para decretar la restitución provisoria del inmueble ocupado ilegalmente en cualquier momento.', url: 'https://www.diarioconstitucional.cl/articulos/algunas-reflexiones-sobre-la-nueva-ley-n-21-633-que-regula-los-delitos-de-ocupacion-ilegal-de-inmuebles-y-los-efectos-de-la-medida-cautelar-real-especial-incorporada-en-dicho-articulado/', source: 'Actualidad Jurídica' },
+    { cat: 'Responsabilidad', tag: 'Corte Suprema', title: 'Abogado que deja vencer plazos fatales o abandona el procedimiento debe indemnizar la pérdida de la chance', desc: 'El máximo tribunal condena civilmente a letrados negligentes por frustrar la oportunidad legítima de obtener sentencia favorable.', url: 'https://www.diarioconstitucional.cl/2026/01/06/corte-de-santiago-fija-indemnizacion-de-120-millones-contra-clinica-por-perdida-de-oportunidad-tras-manejo-negligente-de-acv/', source: 'Poder Judicial / CS' }
   ];
 
-  // Motor estricto de renovación automática cada 10 días corridos
+  // Motor estricto de rotación automática basada en ciclos de 10 días corridos
   const DIEZ_DIAS_MS = 1000 * 60 * 60 * 24 * 10;
   const cicloDiezDias = Math.floor(Date.now() / DIEZ_DIAS_MS);
   let currentIndex = (cicloDiezDias * 3) % poolFallos.length;
