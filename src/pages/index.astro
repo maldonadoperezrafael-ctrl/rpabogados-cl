@@ -13,11 +13,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
     <!-- Hero Section -->
     <section id="inicio" class="relative min-h-[90vh] flex items-end overflow-hidden bg-[#181a1f]">
       <div class="absolute inset-0">
-        <img 
-          src="/fotos/fondo-hormigon.webp" width="1920" height="1282" fetchpriority="high" decoding="async"
-          alt=""
-          class="w-full h-full object-cover object-center"
-        />
+        <img src="/fotos/fondo-hormigon.webp" width="1920" height="1282" fetchpriority="high" decoding="async" alt="" class="w-full h-full object-cover object-center" />
         <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-transparent"></div>
       </div>
 
@@ -29,12 +25,101 @@ import FormularioContacto from '../components/FormularioContacto.astro';
 
           <div class="w-24 h-1 bg-oro mb-8 shadow-md"></div>
 
-          <p class="text-white/95 text-lg md:text-xl font-normal leading-relaxed max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+          <p class="text-white/95 text-lg md:text-xl font-normal leading-relaxed max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] mb-8">
             Estudio jurídico orientado en litigación de alta complejidad, en juicios de derechos de daños, en delitos penales económicos-tributarios y de alta connotación social, contencioso administrativos, acciones constitucionales, derecho migratorio y derecho laboral de la empresa colectivo e individual. Desde Santiago y la Región de O'Higgins, asesoramos a personas, empresas e instituciones en los casos más desafiantes, con un enfoque estratégico, ético y orientado a resultados.
           </p>
+
+          <!-- BOTÓN DIRECTO EN LA PORTADA PRINCIPAL -->
+          <div style="margin-top: 24px;">
+            <a id="hero-radio-btn" href="https://www.radiocorporacionpichilemu.net/" target="_blank" rel="noopener noreferrer" style="background-color: #C5A880; color: #12151B; display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; font-weight: 700; font-size: 14px; border-radius: 4px; text-decoration: none; box-shadow: 0 4px 14px rgba(0,0,0,0.5);">
+              <span>📻 Escúchanos en Vivo: Miércoles y Viernes 11:30 hrs (Radio Corporación 97.7 FM Pichilemu)</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- BANNER PROGRAMA RADIAL RP ABOGADOS -->
+    <section class="bg-[#12151B] py-10 px-4 border-t border-b border-white/20">
+      <div class="max-w-6xl mx-auto">
+        <div class="rounded-sm bg-[#181a1f] border border-slate-700 p-6 md:p-8 shadow-lg">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div class="space-y-3 max-w-2xl">
+              <div id="live-badge" style="background-color: #1e293b; border: 1px solid #C5A880; color: #C5A880; display: inline-block; padding: 4px 12px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">
+                📻 Programa Radial • Miércoles y Viernes 11:30 hrs
+              </div>
+
+              <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                «¿Por qué nadie lo ha dicho antes?» <span class="text-[#C5A880]">La Ley sin Letra Chica</span>
+              </h2>
+
+              <p class="text-white/85 text-sm md:text-base leading-relaxed">
+                Sintoniza a <strong class="text-white">Rafael Pérez Maldonado</strong> junto a Germán Rojas López en <strong class="text-white">Radio Corporación Pichilemu (97.7 FM)</strong>. Todos los miércoles y viernes a las 11:30 hrs analizamos casos reales, defensa de terrenos, herencias, negligencias y respondemos tus consultas en directo.
+              </p>
+            </div>
+
+            <div class="flex flex-col gap-3 shrink-0">
+              <a id="live-btn" href="https://www.radiocorporacionpichilemu.net/" target="_blank" rel="noopener noreferrer" style="background-color: #C5A880; color: #12151B; display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; font-weight: 700; font-size: 14px; border-radius: 4px; text-decoration: none; text-align: center;">
+                <span id="btn-text">▶ Escuchar Señal Oficial Online</span>
+              </a>
+
+              <div class="flex items-center justify-center gap-4 text-xs pt-1">
+                <a href="https://radio.garden/listen/radio-corporacion-pichilemu-97-7-fm/5txg3gi4?hl=es" target="_blank" rel="noopener noreferrer" style="color: #cbd5e1; text-decoration: underline;">Radio Garden (Celular)</a>
+                <span class="text-white/30">•</span>
+                <a href="https://emisora.cl/corporacion-pichilemu/" target="_blank" rel="noopener noreferrer" style="color: #cbd5e1; text-decoration: underline;">Señal Emisora.cl</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script is:inline>
+      (function checkLiveStatus() {
+        try {
+          const now = new Date();
+          const options = { timeZone: 'America/Santiago', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false };
+          const parts = new Intl.DateTimeFormat('en-US', options).formatToParts(now);
+          let weekday = '';
+          let hour = 0;
+          let minute = 0;
+
+          parts.forEach(part => {
+            if (part.type === 'weekday') weekday = part.value.toLowerCase();
+            if (part.type === 'hour') hour = parseInt(part.value, 10);
+            if (part.type === 'minute') minute = parseInt(part.value, 10);
+          });
+
+          const isBroadcastDay = (weekday.startsWith('we') || weekday.startsWith('tu') || weekday.startsWith('fr'));
+          const totalMinutes = hour * 60 + minute;
+          const isLiveTime = isBroadcastDay && (totalMinutes >= 690 && totalMinutes <= 750);
+
+          const badge = document.getElementById('live-badge');
+          const btn = document.getElementById('live-btn');
+          const btnText = document.getElementById('btn-text');
+          const heroBtn = document.getElementById('hero-radio-btn');
+
+          if (isLiveTime) {
+            if (badge) {
+              badge.style.backgroundColor = '#7f1d1d';
+              badge.style.borderColor = '#ef4444';
+              badge.style.color = '#fecaca';
+              badge.innerHTML = '🔴 ¡ESTAMOS AL AIRE AHORA MISMO! (11:30 - 12:30 HRS)';
+            }
+            if (btn && btnText) {
+              btn.style.backgroundColor = '#dc2626';
+              btn.style.color = '#ffffff';
+              btnText.textContent = '🔴 Escuchar Programa en Vivo Ahora';
+            }
+            if (heroBtn) {
+              heroBtn.style.backgroundColor = '#dc2626';
+              heroBtn.style.color = '#ffffff';
+              heroBtn.innerHTML = '<span>🔴 ¡AL AIRE AHORA! Escuchar Programa en Vivo (97.7 FM)</span>';
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
 
     <!-- Nuestra Filosofía -->
     <section class="py-14 bg-slate-50 border-t border-b border-slate-200" id="filosofia">
@@ -314,7 +399,6 @@ import FormularioContacto from '../components/FormularioContacto.astro';
             <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-3">Contacto y Ubicación</h2>
             <div class="w-12 h-0.5 bg-[#C5A880] mb-4"></div>
             <p class="text-slate-600 text-sm leading-relaxed mb-6">Estudio jurídico ubicado en Providencia, Santiago.</p>
-            
             <div class="mb-6 rounded overflow-hidden shadow-sm border border-slate-200">
               <MapaGoogle alto="h-[260px]" />
             </div>
@@ -323,13 +407,11 @@ import FormularioContacto from '../components/FormularioContacto.astro';
           <div class="lg:col-span-6 bg-slate-50 border border-slate-200 p-8 rounded-sm shadow-sm">
             <h3 class="text-xl font-bold text-slate-900 mb-1">Consulta Confidencial</h3>
             <p class="text-xs text-slate-500 mb-5">Indique los antecedentes preliminares para la evaluación jurídica de su asunto.</p>
-
             <FormularioContacto />
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <Footer />
