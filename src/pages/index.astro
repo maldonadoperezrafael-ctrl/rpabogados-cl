@@ -371,7 +371,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
                 </a>
               </h3>
               <p id="news-desc-2" class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
-                La Corte dictaminó que si la información judicial fue real y de interés público, el derecho a informar de la prensa está primero.
+                La Corte dictaminó que si la información fue real y de interés público, el derecho a informar de la prensa está primero.
               </p>
             </div>
             <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
@@ -440,7 +440,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
 </Layout>
 
 <script>
-  // Conexión del botón "Sede Pichilemu" del menú superior a la sección radial
+  // Conexión automática del menú superior "Sede Pichilemu" a la sección radial
   const navLinks = document.querySelectorAll('a');
   navLinks.forEach((link) => {
     const txt = (link.textContent || '').toUpperCase();
@@ -449,7 +449,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
     }
   });
 
-  // Base institucional de fallos judiciales verificados con URLs directas reales
+  // Base de fallos verificados con URLs directas reales
   const poolFallos = [
     { cat: 'Indemnizaciones', tag: 'Fallo Clave', title: 'Los jueces ya no pueden rebajar indemnizaciones «al ojo»: tienen que fundamentar cada peso del daño moral', desc: 'La justicia fijó un criterio claro: si un juez decide bajar el monto que una persona pide por daño moral, no puede escudarse en frases vagas.', url: 'https://www.diarioconstitucional.cl/videos/jueces-deben-explicar-fundadamente-por-que-reducen-el-monto-de-la-indemnizacion-de-perjuicios-por-dano-moral-mas-alla-de-una-somera-debilidad-probatoria/', source: 'Diario Constitucional' },
     { cat: 'Redes Sociales', tag: 'Corte Suprema', title: 'La Suprema frena las «funas» en internet: prohibido acusar de delitos sin pruebas en redes sociales', desc: 'El máximo tribunal dejó en claro que nadie puede imputar delitos sin condena judicial, ordenando eliminar las publicaciones.', url: 'https://www.diarioconstitucional.cl/2026/04/21/corte-suprema-pone-freno-a-acusaciones-de-delitos-sin-respaldo-difundidas-en-redes-sociales/', source: 'Diario Constitucional' },
