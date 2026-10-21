@@ -99,7 +99,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
       </div>
     </section>
 
-    <!-- Sede Pichilemu: Fallo Histórico y Programa Radial (Restaurado) -->
+    <!-- Sede Pichilemu: Fallo Histórico y Programa Radial Integrados -->
     <section id="sede-pichilemu" class="py-14 bg-slate-50 border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-10">
@@ -109,7 +109,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Tarjeta 1: Fallo Histórico Juzgado de Letras de Pichilemu ($299 Millones) -->
+          <!-- Tarjeta 1: Fallo Histórico Juzgado de Letras de Pichilemu -->
           <article class="bg-white p-7 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm flex flex-col justify-between">
             <div>
               <div class="flex justify-between items-center mb-3">
@@ -121,7 +121,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
               </h3>
               <div class="w-8 h-0.5 bg-slate-200 mb-3"></div>
               <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                En sentencia dictada bajo la dirección de nuestra firma, el tribunal acogió íntegramente la demanda, condenando solidariamente al conductor y al propietario del vehículo al pago de casi 300 millones de pesos por lucro cesante y daño moral. Un hito que ratifica con rigor técnico que la reparación íntegra es un estándar exigible a toda cadena de responsabilidad.
+                En sentencia dictada bajo la dirección de nuestra firma, el tribunal acogió íntegramente la demanda, condenando solidariamente al conductor y al propietario del vehículo al pago de casi 300 millones de pesos por lucro cesante y daño moral. Una sentencia que reafirma con rigor técnico que la reparación íntegra del daño no es solo una expectativa, sino un estándar exigible a toda cadena de responsabilidad.
               </p>
             </div>
             <div class="pt-4 border-t border-slate-200 flex justify-between items-center text-xs">
@@ -146,7 +146,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
               </h3>
               <div class="w-8 h-0.5 bg-slate-200 mb-3"></div>
               <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                Sintoniza a <strong>Rafael Pérez Maldonado</strong> junto a Germán Rojas López en Radio Corporación Pichilemu (97.7 FM). Todos los miércoles y viernes a las 11:30 hrs analizamos la praxis jurídica cotidiana, defensa de terrenos, herencias y respondemos en directo.
+                Sintoniza a <strong>Rafael Pérez Maldonado</strong> junto a Germán Rojas López en Radio Corporación Pichilemu (97.7 FM). Todos los miércoles y viernes a las 11:30 hrs analizamos la praxis jurídica cotidiana, defensa de terrenos, herencias y respondemos casos de la región.
               </p>
             </div>
             <div class="pt-4 border-t border-slate-200 flex flex-wrap gap-3 items-center text-xs">
@@ -297,7 +297,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
       </div>
     </section>
 
-    <!-- Actualidad / Radar Jurídico -->
+    <!-- Actualidad / Radar Jurídico con Rotación de 10 Días -->
     <section id="actualidad" class="relative py-14 overflow-hidden bg-slate-100 border-t border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-10 pb-3 border-b border-slate-300 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
@@ -408,7 +408,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
 </Layout>
 
 <script>
-  // 1. Conectar el botón "SEDE PICHILEMU" del menú superior a la sección
+  // 1. Conectar botón "Sede Pichilemu" del menú superior a la sección
   document.querySelectorAll('a').forEach((link) => {
     const txt = (link.textContent || '').toUpperCase();
     if (txt.includes('PICHILEMU')) {
@@ -425,7 +425,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
     }
   });
 
-  // 3. Pool de fallos con enlaces profundos verificados
+  // 3. Pool de fallos basado en texto puro
   const poolFallos = [
     { cat: 'Indemnizaciones', tag: 'Fallo Clave', title: 'Los jueces ya no pueden rebajar indemnizaciones «al ojo»: tienen que fundamentar cada peso', desc: 'La justicia fijó un criterio claro: si un juez decide bajar el monto que una persona pide por daño moral, no puede escudarse en frases vagas.', url: 'https://www.diarioconstitucional.cl/videos/jueces-deben-explicar-fundadamente-por-que-reducen-el-monto-de-la-indemnizacion-de-perjuicios-por-dano-moral-mas-alla-de-una-somera-debilidad-probatoria/', source: 'Diario Constitucional' },
     { cat: 'Redes Sociales', tag: 'Corte Suprema', title: 'La Suprema frena las «funas» en internet: prohibido acusar de delitos sin pruebas en redes', desc: 'El máximo tribunal le puso límites a las denuncias en LinkedIn, Instagram y X. Dejó en claro que nadie puede acusar a otra persona de un delito sin una condena judicial que lo demuestre.', url: 'https://www.diarioconstitucional.cl/2026/04/21/corte-suprema-pone-freno-a-acusaciones-de-delitos-sin-respaldo-difundidas-en-redes-sociales/', source: 'Diario Constitucional' },
