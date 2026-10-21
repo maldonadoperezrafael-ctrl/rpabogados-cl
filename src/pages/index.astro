@@ -99,13 +99,13 @@ import FormularioContacto from '../components/FormularioContacto.astro';
       </div>
     </section>
 
-    <!-- Sede Pichilemu & Litigios en Regiones -->
-    <section id="sede-pichilemu" class="py-16 bg-[#12151B] border-t border-b border-white/10 text-white">
+    <!-- Actividades en Regiones -->
+    <section id="actividades-regiones" class="py-16 bg-[#12151B] border-t border-b border-white/10 text-white">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-10">
           <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-1">Presencia Regional</span>
-          <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Sede Pichilemu &amp; Litigios en Regiones</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Actividades en Regiones</h2>
           <div class="w-12 h-0.5 bg-[#C5A880] mx-auto mt-3"></div>
         </div>
 
@@ -410,11 +410,11 @@ import FormularioContacto from '../components/FormularioContacto.astro';
 </Layout>
 
 <script>
-  // 1. Conectar botón "Sede Pichilemu" del menú superior a la sección
+  // 1. Conectar enlaces del menú superior que mencionen regiones o pichilemu a la sección
   document.querySelectorAll('a').forEach((link) => {
     const txt = (link.textContent || '').toUpperCase();
-    if (txt.includes('PICHILEMU')) {
-      link.setAttribute('href', '#sede-pichilemu');
+    if (txt.includes('PICHILEMU') || txt.includes('REGIONES')) {
+      link.setAttribute('href', '#actividades-regiones');
     }
   });
 
