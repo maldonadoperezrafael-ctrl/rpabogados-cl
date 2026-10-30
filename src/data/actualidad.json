@@ -1,0 +1,106 @@
+{
+  "generatedAt": "2026-10-29T00:05:11.527Z",
+  "editorialMethod": "Actualización automatizada de Fallos y Prensa. Los fallos resumen objetivamente información del Poder Judicial y enlazan a sus fuentes oficiales; la prensa reproduce una bajada informativa del medio enlazado, seleccionada por relevancia jurídica. Análisis RP no se genera automáticamente: requiere autoría, revisión profesional y fuentes verificables.",
+  "sources": [
+    {
+      "source": "Poder Judicial",
+      "status": "ok",
+      "reviewedAt": "2026-10-29T00:04:59.206Z"
+    },
+    {
+      "source": "El Mostrador",
+      "status": "ok",
+      "reviewedAt": "2026-10-29T00:05:11.526Z"
+    }
+  ],
+  "items": [
+    {
+      "id": "pjud-fallo-149770",
+      "category": "Fallos",
+      "title": "Pleno de la Corte Suprema resuelve 5 causas por viajes de jueces y juezas fuera del país con licencia médica",
+      "text": "El Pleno de la Corte Suprema informó hoy – miércoles 28 de octubre- la decisión tras la vista de 5 cuadernos de remoción relativos a integrantes del escalafón primario que viajaron fuera del país haciendo uso de licencias médicas.",
+      "meta": "Corte Suprema",
+      "source": "Poder Judicial",
+      "url": "https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/149770",
+      "rulingUrl": "",
+      "publishedAt": "2026-10-28T12:00:00.000Z"
+    },
+    {
+      "id": "prensa-2026-10-28-corte-suprema-remueve-al-juez-daniel-urrutia-por-viajes-al-extranjero-con-licencia-medica",
+      "category": "Prensa",
+      "title": "Corte Suprema remueve al juez Daniel Urrutia por viajes al extranjero con licencia médica",
+      "text": "El pleno de la Corte Suprema removió del Poder Judicial al juez del Séptimo Juzgado de Garantía de Santiago, Daniel Urrutia, tras concluir que incurrió en una falta grave a la probidad al realizar dos viajes al extranjero mientras se encontraba con licencia médica.",
+      "meta": "Actualidad jurídica · medio externo",
+      "source": "El Mostrador",
+      "url": "https://www.elmostrador.cl/noticias/pais/2026/10/28/corte-suprema-remueve-al-juez-daniel-urrutia-por-viajes-al-extranjero-con-licencia-medica/",
+      "rulingUrl": "",
+      "publishedAt": "2026-10-28T12:00:00.000Z"
+    },
+    {
+      "id": "pjud-fallo-149769",
+      "category": "Fallos",
+      "title": "Corte Suprema condena al Fisco a pagar indemnización a prisionero político sometido a torturas",
+      "text": "La Corte Suprema condenó al Fisco a pagar indemnización a un poblador de Quilaco sometido a prisión política y torturas en un retén de Carabineros en septiembre de 1973.",
+      "meta": "Corte Suprema · Rol 55.616-2024",
+      "source": "Poder Judicial",
+      "url": "https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/149769",
+      "rulingUrl": "https://www.pjud.cl/prensa-y-comunicaciones/getRulingNew/80342",
+      "publishedAt": "2026-10-28T12:00:00.000Z"
+    },
+    {
+      "id": "prensa-2026-10-28-dc-se-suma-a-ofensiva-contra-rabat-y-confirma-acusacion-constitucional-por-rebajas-de-condenas",
+      "category": "Prensa",
+      "title": "DC se suma a ofensiva contra Rabat y confirma acusación constitucional por rebajas de condenas",
+      "text": "La presión sobre el ministro de Justicia, Fernando Rabat, sumó un nuevo capítulo. La bancada de diputados de la Democracia Cristiana (DC) confirmó que avanzará junto a la oposición en una acusación constitucional contra el secretario de Estado, en medio de las revelaciones sobre rebajas de condenas a delincuentes sexuales y personas vinculadas al Tren de Aragua.",
+      "meta": "Actualidad jurídica · medio externo",
+      "source": "El Mostrador",
+      "url": "https://www.elmostrador.cl/noticias/pais/2026/10/28/dc-se-suma-a-ofensiva-contra-rabat-y-confirma-acusacion-constitucional-por-rebajas-de-condenas/",
+      "rulingUrl": "",
+      "publishedAt": "2026-10-28T12:00:00.000Z"
+    },
+    {
+      "id": "pjud-fallo-149768",
+      "category": "Fallos",
+      "title": "Corte de Coyhaique confirma la prisión preventiva de imputados por tráfico de drogas y tenencia de armas y municiones",
+      "text": "La Corte de Apelaciones de Coyhaique confirmó la medida cautelar de prisión preventiva de C.E.T.V. y B.E.V.O., imputados por el Ministerio Público como autores de los delitos de tráfico de drogas, tenencia ilegal de armas de fuego y tenencia ilegal de municiones. Ilícitos sorprendidos a mediados de mes, en la comuna.",
+      "meta": "Corte de Coyhaique · Rol 306-2026",
+      "source": "Poder Judicial",
+      "url": "https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/149768",
+      "rulingUrl": "",
+      "publishedAt": "2026-10-28T12:00:00.000Z"
+    },
+    {
+      "id": "prensa-2026-10-28-fondo-e-congreso-contraloria-y-regulador-cercan-a-las-afp-por-perdidas-y-sus-responsabilidade",
+      "category": "Prensa",
+      "title": "Fondo E: Congreso, Contraloría y regulador cercan a las AFP por pérdidas y sus responsabilidades",
+      "text": "La caída registrada en los fondos de pensiones de las AFP, particularmente en el fondo E, que marcó una baja de 4,92% en septiembre –acumulando en el año un desplome de 10,39% en términos reales– dejó de ser solo una discusión sobre rentabilidades y mercados financieros. El episodio abrió un nuevo frente político en torno al manejo de los ahorros previsionales, puso a bajo…",
+      "meta": "Actualidad jurídica · medio externo",
+      "source": "El Mostrador",
+      "url": "https://www.elmostrador.cl/noticias/pais/2026/10/28/fondo-e-congreso-contraloria-y-regulador-cercan-a-las-afp-por-perdidas-y-sus-responsabilidade/",
+      "rulingUrl": "",
+      "publishedAt": "2026-10-28T12:00:00.000Z"
+    },
+    {
+      "id": "pjud-fallo-149765",
+      "category": "Fallos",
+      "title": "Corte Suprema rechaza reclamación de multa a comercializadora de pescados y mariscos de La Serena",
+      "text": "La Corte Suprema rechazó recurso de casación en contra de la sentencia que confirmó una multa a una comercializadora de pescados y mariscos de La Serena por no contar con autorización.",
+      "meta": "Corte Suprema · Rol 47.135-2026",
+      "source": "Poder Judicial",
+      "url": "https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/149765",
+      "rulingUrl": "https://www.pjud.cl/prensa-y-comunicaciones/getRulingNew/80339",
+      "publishedAt": "2026-10-28T12:00:00.000Z"
+    },
+    {
+      "id": "prensa-2026-10-27-fiscalia-investiga-18-nombramientos-judiciales-y-pone-bajo-la-lupa-a-ministra-de-la-suprema",
+      "category": "Prensa",
+      "title": "Fiscalía investiga 18 nombramientos judiciales y pone bajo la lupa a ministra de la Suprema",
+      "text": "Al menos 18 jueces, ministros de cortes, notarios y conservadores de bienes raíces están bajo investigación de la Fiscalía Regional de Valparaíso por eventuales irregularidades en sus nombramientos, en una nueva arista del caso Hermosilla que busca establecer si existieron pagos, intercambios de favores o gestiones indebidas para acceder a cargos en el Poder Judicial.",
+      "meta": "Actualidad jurídica · medio externo",
+      "source": "El Mostrador",
+      "url": "https://www.elmostrador.cl/noticias/pais/2026/10/27/fiscalia-investiga-18-nombramientos-judiciales-y-pone-bajo-la-lupa-a-ministra-de-la-suprema/",
+      "rulingUrl": "",
+      "publishedAt": "2026-10-27T12:00:00.000Z"
+    }
+  ]
+}
