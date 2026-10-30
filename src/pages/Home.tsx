@@ -1,5 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
-import type { FormEvent } from 'react'
+import { useEffect, useState } from 'react'
 import Lenis from 'lenis'
 import {
   ArrowDownRight,
@@ -9,56 +8,22 @@ import {
   ChevronDown,
   Mail,
   MapPin,
-  Menu,
   MessageCircle,
   Phone,
-  X,
 } from 'lucide-react'
+import { useLocation } from 'react-router'
+import ContactForm from '@/components/ContactForm'
+import EditorialList from '@/components/EditorialList'
+import FaqList from '@/components/FaqList'
+import SiteFooter from '@/components/SiteFooter'
+import SiteHeader from '@/components/SiteHeader'
+import { practiceAreas } from '@/data/areas'
+import { useAnalytics } from '@/lib/analytics'
+import { usePageMeta } from '@/lib/pageMeta'
 import '../App.css'
 import './Home.overrides.css'
 
-const navItems = [
-  { label: 'Filosofía', href: '#filosofia' },
-  { label: 'Áreas', href: '#areas' },
-  { label: 'Método', href: '#metodo' },
-  { label: 'Socios', href: '#socios' },
-  { label: 'Actualidad', href: '#actualidad' },
-]
-
-const areas = [
-  {
-    title: 'Derecho de daños y litigación civil',
-    short: 'Daños y civil',
-    description:
-      'Estrategia y representación en conflictos donde la evidencia, la cuantificación del daño y la lectura del riesgo exigen una preparación rigurosa.',
-    matters: ['Responsabilidad civil', 'Indemnización de daños', 'Litigación de alta complejidad'],
-    image: '/fotos/area-civil.webp',
-  },
-  {
-    title: 'Penal económico',
-    short: 'Penal económico',
-    description:
-      'Defensa y representación en materias penales de relevancia económica, con una estrategia construida desde los antecedentes y el contexto de cada caso.',
-    matters: ['Defensa penal', 'Querellas', 'Asesoría a empresas'],
-    image: '/fotos/area-penal.webp',
-  },
-  {
-    title: 'Derecho público',
-    short: 'Derecho público',
-    description:
-      'Litigación y asesoría frente a actuaciones de la Administración, con especial atención a la estrategia procesal y a los derechos involucrados.',
-    matters: ['Contencioso-administrativo', 'Actuaciones administrativas', 'Litigación pública'],
-    image: '/fotos/area-publico.webp',
-  },
-  {
-    title: 'Litigación laboral',
-    short: 'Litigación laboral',
-    description:
-      'Representación en conflictos laborales que requieren combinar conocimiento técnico, preparación probatoria y una mirada práctica del conflicto.',
-    matters: ['Litigios laborales', 'Estrategia probatoria', 'Asesoría en conflictos'],
-    image: '/fotos/area-laboral.webp',
-  },
-]
+const areas = practiceAreas
 
 const method = [
   {
@@ -79,37 +44,31 @@ const method = [
   },
 ]
 
-const insights = [
-  {
-    category: 'Fallos',
-    title: 'Responsabilidad civil: una mirada al caso de Pichilemu',
-    text: 'Tribunal, contexto y relevancia de una resolución informada por la firma.',
-    meta: 'Reseña de fallo',
-  },
-  {
-    category: 'Análisis',
-    title: 'Cómo se discute la cuantía de una indemnización',
-    text: 'Los antecedentes que importan al momento de analizar el daño y su acreditación.',
-    meta: 'Lectura editorial',
-  },
-  {
-    category: 'Prensa',
-    title: 'La Ley sin Letra Chica en Radio Corporación',
-    text: 'Conversación jurídica para acercar temas complejos a la comunidad regional.',
-    meta: '97.7 FM · 11:30 h',
-  },
+const brandLogo = '/marca/rp-abogados-logo-claro.svg'
+const regions = ['Región Metropolitana', 'Región de O’Higgins']
+const whatsappFor = (region: string) =>
+  `https://wa.me/56985497497?text=${encodeURIComponent(`Hola RP Abogados, quisiera solicitar una evaluación inicial en la ${region}.`)}`
+
+const generalFaqs = [
+  { question: '¿Solicitar una evaluación significa contratar al estudio?', answer: 'No. El primer contacto permite comprender la situación y determinar si la firma puede ayudarte. El alcance del trabajo y sus condiciones se conversan posteriormente.' },
+  { question: '¿Qué conviene contar en el primer mensaje?', answer: 'Una cronología breve, la etapa del conflicto, las partes involucradas y cualquier fecha o actuación próxima. No es necesario enviar todos los documentos en el primer contacto.' },
+  { question: '¿La atención es presencial o telemática?', answer: 'Ambas modalidades están disponibles. La coordinación depende de la naturaleza del caso y de la región desde la que consultas.' },
+  { question: '¿Dónde atiende RP Abogados?', answer: 'La cobertura informada en este sitio comprende la Región Metropolitana y la Región de O’Higgins, con atención para personas y empresas.' },
+  { question: '¿Se pueden anticipar honorarios o resultados desde el formulario?', answer: 'No. Los honorarios y el alcance requieren una revisión previa del asunto. Tampoco es posible garantizar el resultado de una gestión o de un juicio.' },
 ]
 
-const filters = ['Todos', 'Fallos', 'Análisis', 'Prensa']
-
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const { search } = useLocation()
+  const track = useAnalytics()
+  const requestedArea = new URLSearchParams(search).get('area')
+  const initialArea = areas.find((area) => area.slug === requestedArea || area.title === requestedArea)?.title || ''
   const [activeArea, setActiveArea] = useState(0)
-  const [filter, setFilter] = useState('Todos')
-  const [formArea, setFormArea] = useState('')
-  const [mailLink, setMailLink] = useState('')
   const [mapVisible, setMapVisible] = useState(false)
+  usePageMeta({
+    title: 'RP Abogados | Litigación estratégica en Santiago y O’Higgins',
+    description: 'Litigación estratégica de alta complejidad en materias civiles, penales económicas, públicas y laborales en la Región Metropolitana y O’Higgins.',
+    path: '/',
+  })
   const [introVisible, setIntroVisible] = useState(() => {
     try {
       return !window.matchMedia('(prefers-reduced-motion: reduce)').matches && !sessionStorage.getItem('rp-brand-intro')
@@ -118,12 +77,6 @@ export default function Home() {
     }
   })
   const [introLeaving, setIntroLeaving] = useState(false)
-  const menuRef = useRef<HTMLDivElement>(null)
-
-  const visibleInsights = useMemo(
-    () => insights.filter((item) => filter === 'Todos' || item.category === filter),
-    [filter],
-  )
 
   useEffect(() => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -139,19 +92,7 @@ export default function Home() {
       frame = requestAnimationFrame(raf)
     }
 
-    const onScroll = () => {
-      setScrolled(window.scrollY > 28)
-      if (!reducedMotion) {
-        const shift = Math.min(window.scrollY * 0.075, 72)
-        document.documentElement.style.setProperty('--hero-shift', `${shift}px`)
-      }
-    }
-
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-
     return () => {
-      window.removeEventListener('scroll', onScroll)
       lenis?.destroy()
       if (frame) cancelAnimationFrame(frame)
     }
@@ -201,144 +142,36 @@ export default function Home() {
     }
   }, [introVisible])
 
-  useEffect(() => {
-    if (!menuOpen) return
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setMenuOpen(false)
-        return
-      }
-      if (event.key !== 'Tab' || !menuRef.current) return
-
-      const focusable = Array.from(
-        menuRef.current.querySelectorAll<HTMLElement>('a[href], button:not([disabled])'),
-      )
-      const first = focusable[0]
-      const last = focusable[focusable.length - 1]
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault()
-        last?.focus()
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault()
-        first?.focus()
-      }
-    }
-    window.addEventListener('keydown', onKeyDown)
-    return () => {
-      document.body.style.overflow = previousOverflow
-      window.removeEventListener('keydown', onKeyDown)
-    }
-  }, [menuOpen])
-
-  const prepareRequest = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    const data = new FormData(event.currentTarget)
-    const name = String(data.get('nombre') || '')
-    const email = String(data.get('email') || '')
-    const phone = String(data.get('telefono') || 'No indicado')
-    const message = String(data.get('mensaje') || '')
-    const subject = `Solicitud de evaluación inicial — ${name}`
-    const body = [
-      `Nombre: ${name}`,
-      `Correo: ${email}`,
-      `Teléfono: ${phone}`,
-      `Área: ${formArea || 'Por definir'}`,
-      '',
-      'Situación:',
-      message,
-    ].join('\n')
-
-    setMailLink(`mailto:contacto@rpabogados.cl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`)
-  }
-
   return (
     <>
       <a className="skip-link" href="#contenido">Saltar al contenido</a>
 
       {introVisible && (
         <div className={`brand-intro ${introLeaving ? 'is-leaving' : ''}`} role="region" aria-label="Presentación de RP Abogados">
-          <div className="intro-brand" aria-label="RP Abogados">
-            <img className="intro-logo" src="/favicon.svg" alt="RP" />
-            <span className="intro-wordmark">RP Abogados<small>Ayudamos a la gente</small></span>
+          <div className="intro-brand">
+            <img
+              className="intro-logo"
+              src={brandLogo}
+              alt="RP Abogados — Ayudamos a la gente"
+              width="1600"
+              height="237"
+            />
           </div>
           <div className="intro-rule" aria-hidden="true" />
           <button type="button" onClick={() => setIntroVisible(false)}>Saltar presentación</button>
         </div>
       )}
 
-      <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
-        <div className="header-inner">
-          <a className="brand" href="#inicio" aria-label="RP Abogados, volver al inicio">
-            <img className="brand-logo" src="/favicon.svg" alt="" />
-            <span className="brand-name">RP Abogados<small>Ayudamos a la gente</small></span>
-          </a>
-
-          <nav className="desktop-nav" aria-label="Navegación principal">
-            {navItems.map((item) => (
-              <a className="nav-link" href={item.href} key={item.href}>{item.label}</a>
-            ))}
-          </nav>
-
-          <a className="header-cta" href="#contacto">
-            Evaluación inicial <ArrowUpRight size={16} aria-hidden="true" />
-          </a>
-
-          <button
-            className="menu-toggle"
-            type="button"
-            aria-label="Abrir menú"
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen(true)}
-          >
-            <Menu size={25} aria-hidden="true" />
-          </button>
-        </div>
-      </header>
-
-      {menuOpen && (
-        <div className="mobile-menu-backdrop" onClick={() => setMenuOpen(false)}>
-          <div
-            ref={menuRef}
-            className="mobile-menu"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Menú de navegación"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="mobile-menu-top">
-              <img className="brand-logo" src="/favicon.svg" alt="" />
-              <button autoFocus type="button" aria-label="Cerrar menú" onClick={() => setMenuOpen(false)}>
-                <X size={26} aria-hidden="true" />
-              </button>
-            </div>
-            <nav aria-label="Navegación móvil">
-              {navItems.map((item) => (
-                <a href={item.href} key={item.href} onClick={() => setMenuOpen(false)}>
-                  {item.label}<ArrowDownRight size={22} aria-hidden="true" />
-                </a>
-              ))}
-              <a href="#presencia" onClick={() => setMenuOpen(false)}>
-                Presencia regional<ArrowDownRight size={22} aria-hidden="true" />
-              </a>
-            </nav>
-            <a className="button-primary mobile-menu-cta" href="#contacto" onClick={() => setMenuOpen(false)}>
-              Solicitar evaluación inicial <ArrowRight size={18} aria-hidden="true" />
-            </a>
-          </div>
-        </div>
-      )}
+      <SiteHeader />
 
       <main id="contenido">
-        <section className="hero" id="inicio" aria-labelledby="hero-title">
+        <section className="hero hero-concept" id="inicio" aria-labelledby="hero-title">
           <div className="hero-media" aria-hidden="true">
-            <img src="/fotos/fondo-hormigon.webp" alt="" />
+            <img src="/fotos/fondo-hormigon.webp" alt="" width="1920" height="1282" fetchPriority="high" decoding="async" />
           </div>
-          <div className="hero-monogram" aria-hidden="true">RP</div>
           <div className="container hero-inner">
-            <div className="hero-kicker hero-enter">Litigación estratégica · Santiago / O’Higgins</div>
-            <h1 id="hero-title" className="hero-enter hero-enter-delay-1">
+            <div className="hero-kicker hero-enter">Litigación de alta complejidad</div>
+            <h1 id="hero-title" className="hero-title">
               <span>Estrategia legal.</span>
               <span className="hero-title-shift">Defensa con <em>propósito.</em></span>
             </h1>
@@ -347,16 +180,13 @@ export default function Home() {
                 Litigación de alta complejidad para personas y empresas que necesitan una respuesta rigurosa, clara y comprometida.
               </p>
               <div className="hero-actions">
-                <a className="button-primary" href="#contacto">
-                  Solicitar evaluación inicial <ArrowRight size={19} aria-hidden="true" />
-                </a>
                 <a className="text-link text-link-light" href="#areas">
                   Explorar áreas de práctica <ArrowDownRight size={18} aria-hidden="true" />
                 </a>
               </div>
             </div>
             <div className="hero-practices hero-enter hero-enter-delay-3" aria-label="Áreas de práctica">
-              <span>Daños y civil</span><span>Penal económico</span><span>Derecho público</span><span>Litigación laboral</span>
+              <span>Derecho civil y de daños</span><span>Representación penal</span><span>Derecho público</span><span>Litigación laboral</span>
             </div>
           </div>
         </section>
@@ -381,9 +211,9 @@ export default function Home() {
 
         <section className="media-interlude" aria-labelledby="media-title">
           <div className="media-grid" aria-hidden="true">
-            <div className="media-shot media-shot-main"><img src="/fotos/area-publico.webp" alt="" /></div>
-            <div className="media-shot media-shot-top"><img src="/fotos/area-civil.webp" alt="" /></div>
-            <div className="media-shot media-shot-bottom"><img src="/fotos/area-laboral.webp" alt="" /></div>
+            <div className="media-shot media-shot-main"><img src="/fotos/area-publico.webp" alt="" width="720" height="420" loading="lazy" decoding="async" /></div>
+            <div className="media-shot media-shot-top"><img src="/fotos/area-civil.svg" alt="" width="1400" height="935" loading="lazy" decoding="async" /></div>
+            <div className="media-shot media-shot-bottom"><img src="/fotos/area-laboral.webp" alt="" width="900" height="592" loading="lazy" decoding="async" /></div>
           </div>
           <div className="media-statement" data-reveal>
             <span>El trabajo detrás de cada estrategia</span>
@@ -407,6 +237,10 @@ export default function Home() {
                   key={areas[activeArea].image}
                   src={areas[activeArea].image}
                   alt={`Imagen editorial del área de ${areas[activeArea].short}`}
+                  width={areas[activeArea].imageWidth}
+                  height={areas[activeArea].imageHeight}
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="area-visual-caption">
                   <span>0{activeArea + 1}</span>
@@ -438,9 +272,14 @@ export default function Home() {
                               <li key={matter}><Check size={16} aria-hidden="true" />{matter}</li>
                             ))}
                           </ul>
-                          <a className="text-link" href="#contacto" onClick={() => setFormArea(area.title)}>
-                            Consultar por esta área <ArrowRight size={17} aria-hidden="true" />
-                          </a>
+                          <div className="area-panel-actions">
+                            <a className="text-link" href={`/areas/${area.slug}`}>
+                              Conocer esta área <ArrowRight size={17} aria-hidden="true" />
+                            </a>
+                            <a className="area-consult-link" href={`/?area=${area.slug}#contacto`} onClick={() => track('cta_contact', area.short)}>
+                              Consultar por esta área
+                            </a>
+                          </div>
                         </div>
                       )}
                     </article>
@@ -472,18 +311,59 @@ export default function Home() {
 
         <section className="case-section section-light" aria-labelledby="case-title">
           <div className="container case-grid">
-            <div className="case-figure" data-reveal>
-              <span>Caso destacado · Responsabilidad civil</span>
-              <strong>$299.622.440</strong>
-              <small>Monto de indemnización informado por la firma.</small>
-            </div>
-            <div className="case-copy" data-reveal data-delay="120">
-              <h2 id="case-title">La experiencia importa cuando puede contarse con precisión.</h2>
+            <article className="case-copy" data-reveal>
+              <span className="case-kicker">Caso destacado · Responsabilidad civil</span>
+              <h2 id="case-title">Sentencia de reparación civil en Pichilemu.</h2>
               <p>
-                Un caso dirigido por RP Abogados ante el Juzgado de Letras de Pichilemu, con cobertura de Diario El Marino y Expreso de la Costa.
+                El Juzgado de Letras de Pichilemu declaró la responsabilidad solidaria del conductor y del propietario de un vehículo por un atropello ocurrido en abril de 2023. La resolución ordenó reparar los daños derivados del fallecimiento de una mujer y de las lesiones sufridas por su hijo.
               </p>
-              <p className="case-note">La experiencia en casos anteriores no garantiza resultados futuros.</p>
-            </div>
+              <div className="case-context" aria-label="Antecedentes de la resolución">
+                <span>Sentencia · 8 de octubre de 2026</span>
+                <span>Representación · RP Abogados</span>
+              </div>
+              <figure className="case-reference">
+                <div className="case-reference-media">
+                  <img
+                    src="/fotos/juzgado-pichilemu.svg"
+                    alt="Fachada del Juzgado de Letras y Garantía de Pichilemu"
+                    width="1024"
+                    height="768"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  Juzgado de Letras y Garantía de Pichilemu.
+                  <a
+                    href="https://www.elrancaguino.cl/2024/05/15/juzgado-de-letras-y-garantia-de-pichilemu-incorpora-plataforma-de-atencion-de-publico-virtual/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Ver la fuente de la fotografía en El Rancagüino (se abre en una pestaña nueva)"
+                  >
+                    Imagen: El Rancagüino <ArrowUpRight size={13} aria-hidden="true" />
+                  </a>
+                </figcaption>
+              </figure>
+              <div className="case-sources" aria-label="Fuentes periodísticas">
+                <span>Fuentes</span>
+                <a
+                  href="https://www.expresodelacosta.cl/noticia/justicia-por-fatal-atropello-en-pichilemu-condenan-a-conductor-y-dueno-de-camioneta-a-pagar-mas-de-299-millones"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Leer la nota en Expreso de la Costa (se abre en una pestaña nueva)"
+                >
+                  Expreso de la Costa <ArrowUpRight size={15} aria-hidden="true" />
+                </a>
+                <a
+                  href="https://www.diarioelmarino.cl/2026/10/16/juzgado-de-pichilemu-condena-a-conductor-y-propietario-de-camioneta-a-pagar-casi-300-millones-por-atropello-fatal/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Leer la nota en Diario El Marino (se abre en una pestaña nueva)"
+                >
+                  Diario El Marino <ArrowUpRight size={15} aria-hidden="true" />
+                </a>
+              </div>
+            </article>
           </div>
         </section>
 
@@ -491,30 +371,40 @@ export default function Home() {
           <div className="container">
             <div className="partners-heading" data-reveal>
               <span className="section-kicker">Socios</span>
-              <h2 id="partners-title">Criterio profesional.<br />Trato directo.</h2>
+              <h2 id="partners-title">Criterio profesional<br />Trato directo</h2>
             </div>
             <div className="partners-grid">
               <article className="partner" data-reveal>
-                <div className="partner-photo"><img src="/fotos/foto_gerente.webp" alt="Rafael Pérez Maldonado" /></div>
+                <div className="partner-photo"><img src="/fotos/foto_gerente.webp" alt="Rafael Pérez Maldonado" width="716" height="718" loading="lazy" decoding="async" /></div>
                 <div className="partner-meta"><h3>Rafael Pérez Maldonado</h3><span>Socio</span></div>
               </article>
               <article className="partner partner-offset" data-reveal data-delay="120">
-                <div className="partner-photo"><img src="/fotos/yerko-scheihing.webp" alt="Yerko Scheihing Sepúlveda" /></div>
+                <div className="partner-photo"><img src="/fotos/yerko-scheihing.svg" alt="Yerko Scheihing Sepúlveda" width="640" height="640" loading="lazy" decoding="async" /></div>
                 <div className="partner-meta"><h3>Yerko Scheihing Sepúlveda</h3><span>Socio</span></div>
               </article>
             </div>
           </div>
         </section>
 
-        <section className="regional-section section-dark" id="presencia" aria-labelledby="regional-title">
-          <div className="regional-ring" aria-hidden="true" />
+        <section className="regional-section regional-compact section-dark" id="presencia" aria-labelledby="regional-title">
           <div className="container regional-grid">
-            <div data-reveal>
-              <span className="section-kicker">Presencia regional</span>
-              <h2 id="regional-title">Santiago.<br /><em>O’Higgins.</em></h2>
-              <p className="regional-lead">Experiencia en litigación compleja, con presencia y conocimiento directo de la realidad regional.</p>
-              <div className="region-places" aria-label="Zonas de atención">
-                <span>Región Metropolitana</span><span>Región de O’Higgins</span>
+            <div className="regional-copy" data-reveal>
+              <span className="section-kicker">Cobertura y atención</span>
+              <h2 id="regional-title">Donde está<br /><em>tu causa.</em></h2>
+              <p className="regional-lead">Atención presencial y telemática para personas y empresas, con coordinación directa de la firma.</p>
+              <div className="region-places" aria-label="Consultar por zona de atención">
+                {regions.map((region) => (
+                  <a
+                    key={region}
+                    href={whatsappFor(region)}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Consultar por WhatsApp en la ${region} (se abre en una pestaña nueva)`}
+                    onClick={() => track('contact_whatsapp', region)}
+                  >
+                    {region}<ArrowUpRight size={14} strokeWidth={1.6} aria-hidden="true" />
+                  </a>
+                ))}
               </div>
             </div>
             <aside className="radio-feature" data-reveal data-delay="140">
@@ -523,6 +413,26 @@ export default function Home() {
               <p>Un espacio para conversar de derecho con lenguaje claro y mirada práctica.</p>
               <div className="radio-station"><strong>97.7 FM</strong><span>Radio Corporación<br />11:30 horas</span></div>
               <a className="text-link text-link-light" href="#contacto">Consultar por tu zona <ArrowRight size={17} aria-hidden="true" /></a>
+              <div className="radio-socials" aria-label="Radio Corporación en redes sociales">
+                <a
+                  href="https://www.youtube.com/@RadioCorpPichilemu"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Ver el canal de YouTube de Radio Corporación (se abre en una pestaña nueva)"
+                >
+                  <img className="social-brand-icon" src="/marca/youtube-color.svg" alt="" width="20" height="20" loading="lazy" decoding="async" aria-hidden="true" />
+                  YouTube
+                </a>
+                <a
+                  href="https://www.facebook.com/RadioCorporacionDePichilemu/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Visitar la página de Facebook de Radio Corporación (se abre en una pestaña nueva)"
+                >
+                  <img className="social-brand-icon" src="/marca/facebook-color.svg" alt="" width="20" height="20" loading="lazy" decoding="async" aria-hidden="true" />
+                  Facebook
+                </a>
+              </div>
             </aside>
           </div>
         </section>
@@ -534,27 +444,20 @@ export default function Home() {
                 <span className="section-kicker">Actualidad</span>
                 <h2 id="insights-title">Contenido con criterio jurídico.</h2>
               </div>
-              <div className="insight-filters" aria-label="Filtrar contenidos">
-                {filters.map((item) => (
-                  <button
-                    type="button"
-                    key={item}
-                    aria-pressed={filter === item}
-                    onClick={() => setFilter(item)}
-                  >{item}</button>
-                ))}
-              </div>
+              <p className="insights-intro">Tres formatos distintos para informar sin confundir una resolución, una interpretación y una noticia.</p>
             </div>
-            <p className="prototype-note">Contenidos de muestra para visualizar la arquitectura editorial propuesta.</p>
-            <div className="insight-list" aria-live="polite">
-              {visibleInsights.map((item) => (
-                <article className="insight-row" key={item.title}>
-                  <span className="insight-category">{item.category}</span>
-                  <div><h3>{item.title}</h3><p>{item.text}</p></div>
-                  <span className="insight-meta">{item.meta}</span>
-                </article>
-              ))}
+            <EditorialList compact />
+          </div>
+        </section>
+
+        <section className="faq-section section-light" aria-labelledby="faq-title">
+          <div className="container faq-layout">
+            <div className="faq-heading" data-reveal>
+              <span className="section-kicker">Antes de consultar</span>
+              <h2 id="faq-title">Respuestas claras desde el primer contacto.</h2>
+              <p>Información general sobre la evaluación inicial, la cobertura y los antecedentes útiles.</p>
             </div>
+            <FaqList items={generalFaqs} />
           </div>
         </section>
 
@@ -565,8 +468,8 @@ export default function Home() {
               <h2 id="contact-title">Conversemos sobre tu caso.</h2>
               <p>Cuéntanos lo esencial. El primer paso es comprender tu situación y determinar cómo podemos ayudarte.</p>
               <div className="direct-contact">
-                <a href="mailto:contacto@rpabogados.cl"><Mail size={19} aria-hidden="true" />contacto@rpabogados.cl</a>
-                <a href="tel:+56985497497"><Phone size={19} aria-hidden="true" />+56 9 8549 7497</a>
+                <a href="mailto:contacto@rpabogados.cl" onClick={() => track('contact_email', 'contacto')}><Mail size={19} aria-hidden="true" />contacto@rpabogados.cl</a>
+                <a href="tel:+56985497497" onClick={() => track('contact_phone', 'contacto')}><Phone size={19} aria-hidden="true" />+56 9 8549 7497</a>
                 <a
                   className="office-address-link"
                   href="https://www.google.com/maps/search/?api=1&query=Eliodoro%20Y%C3%A1%C3%B1ez%202084%2C%20Providencia%2C%20Santiago%2C%20Chile"
@@ -579,48 +482,13 @@ export default function Home() {
                 href="https://wa.me/56985497497?text=Hola%20RP%20Abogados%2C%20quisiera%20solicitar%20una%20evaluaci%C3%B3n%20inicial."
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => track('contact_whatsapp', 'contacto')}
               >
                 <MessageCircle size={20} aria-hidden="true" />Conversar por WhatsApp<ArrowUpRight size={17} aria-hidden="true" />
               </a>
             </div>
 
-            <form className="contact-form" onSubmit={prepareRequest} data-reveal data-delay="100">
-              <div className="form-heading">
-                <h3>Solicitar evaluación inicial</h3>
-                <span>Maqueta: no envía datos automáticamente.</span>
-              </div>
-              <div className="form-row">
-                <label>Nombre<input name="nombre" type="text" autoComplete="name" required placeholder="Tu nombre" /></label>
-                <label>Correo<input name="email" type="email" autoComplete="email" required placeholder="tu@correo.cl" /></label>
-              </div>
-              <div className="form-row">
-                <label>Teléfono <span>(opcional)</span><input name="telefono" type="tel" autoComplete="tel" placeholder="+56 9 …" /></label>
-                <label>Área de consulta
-                  <select value={formArea} onChange={(event) => setFormArea(event.target.value)}>
-                    <option value="">Seleccionar área</option>
-                    {areas.map((area) => <option value={area.title} key={area.title}>{area.short}</option>)}
-                    <option value="Otra consulta">Otra consulta</option>
-                  </select>
-                </label>
-              </div>
-              <label>¿Qué está ocurriendo?<textarea name="mensaje" required rows={4} placeholder="Describe brevemente tu situación y la ayuda que buscas." /></label>
-              <label className="privacy-check">
-                <input type="checkbox" required />
-                <span>He leído la <a href="https://rpabogados.cl/privacidad" target="_blank" rel="noreferrer">política de privacidad</a> y acepto preparar esta consulta.</span>
-              </label>
-              <button className="button-primary form-submit" type="submit">Preparar solicitud <ArrowRight size={18} aria-hidden="true" /></button>
-
-              {mailLink && (
-                <div className="form-success" role="status">
-                  <Check size={21} aria-hidden="true" />
-                  <div>
-                    <strong>Tu solicitud está preparada. Todavía no se ha enviado.</strong>
-                    <p>Para completar el contacto, ábrela en tu correo y revisa el mensaje antes de enviarlo.</p>
-                    <a href={mailLink}>Abrir mi correo <ArrowUpRight size={16} aria-hidden="true" /></a>
-                  </div>
-                </div>
-              )}
-            </form>
+            <ContactForm key={initialArea} initialArea={initialArea} />
 
             <div className="office-location" data-reveal>
               <div className="office-details">
@@ -666,21 +534,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="container footer-top">
-          <a className="brand" href="#inicio" aria-label="RP Abogados, volver al inicio">
-            <img className="brand-logo" src="/favicon.svg" alt="" />
-            <span className="brand-name">RP Abogados<small>Ayudamos a la gente</small></span>
-          </a>
-          <p>Litigación estratégica en la Región Metropolitana y la Región de O’Higgins.</p>
-          <a className="back-top" href="#inicio">Volver arriba <ArrowUpRight size={17} aria-hidden="true" /></a>
-        </div>
-        <div className="container footer-bottom">
-          <span>© 2026 RP Abogados</span>
-          <a href="https://rpabogados.cl/privacidad" target="_blank" rel="noreferrer">Privacidad</a>
-          <span>Propuesta editorial dinámica</span>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   )
 }
