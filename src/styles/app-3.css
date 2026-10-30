@@ -1,0 +1,78 @@
+.regional-ring{position:absolute;z-index:-1;right:-11rem;top:4rem;width:26rem;aspect-ratio:1;border:1px solid color-mix(in oklab, var(--accent) 32%, transparent);border-radius:50%;box-shadow:0 0 0 4rem color-mix(in oklab, var(--accent) 3%, transparent), 0 0 0 8rem color-mix(in oklab, var(--accent) 2%, transparent)
+}.regional-grid{display:grid;gap:4rem
+}.regional-grid h2{margin-bottom:1.75rem;font-family:var(--font-display);font-size:clamp(4rem, 14vw, 9rem);font-weight:500;letter-spacing:-0.06em;line-height:0.77
+}.regional-grid h2 em{color:var(--accent)
+}.regional-lead{max-width:35rem;margin-bottom:2rem;font-size:1.03rem;line-height:1.75
+}.region-places{display:flex;flex-wrap:wrap;gap:0.6rem 1rem;font-size:0.75rem;font-weight:600;letter-spacing:0.11em;text-transform:uppercase
+}.region-places span:not(:last-child)::after{content:'·';margin-left:1rem;color:var(--accent)
+}.radio-feature{padding-top:2rem;border-top:1px solid color-mix(in oklab, var(--accent) 55%, transparent)
+}.radio-live{display:block;margin-bottom:1.5rem;color:var(--accent);font-size:0.75rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase
+}.radio-feature h3{margin-bottom:1.25rem;font-family:var(--font-display);font-size:clamp(2.8rem, 8vw, 4.75rem);font-weight:500;letter-spacing:-0.04em;line-height:0.9
+}.radio-feature > p{max-width:28rem;line-height:1.7
+}.radio-station{margin-block:2rem 1rem;padding-block:1.25rem;display:flex;align-items:center;gap:1.5rem;border-block:1px solid color-mix(in oklab, var(--paper-100) 18%, transparent)
+}.radio-station strong{color:var(--accent);font-family:var(--font-display);font-size:2.25rem;font-weight:500;line-height:1
+}.radio-station span{font-size:0.75rem;letter-spacing:0.06em;line-height:1.6;text-transform:uppercase
+}.insights-top{display:grid;gap:2rem
+}.insight-filters{display:flex;flex-wrap:wrap;gap:0.25rem 1.25rem
+}.insight-filters button{position:relative;min-height:44px;padding:0;border:0;background:transparent;color:var(--text-on-light);font-size:0.75rem;font-weight:600
+}.insight-filters button::after{content:'';position:absolute;inset:auto 0 5px;height:1px;background:var(--accent-readable);transform:scaleX(0);transform-origin:left;transition:transform 180ms ease-out
+}.insight-filters button[aria-pressed='true']{color:var(--accent-readable)
+}.insight-filters button[aria-pressed='true']::after,
+.insight-filters button:hover::after{transform:scaleX(1)
+}.prototype-note{margin-block:1.5rem 2.5rem;font-size:0.75rem
+}.insight-list{border-bottom:1px solid color-mix(in oklab, var(--ink-950) 22%, transparent)
+}.insight-row{padding-block:1.75rem;display:grid;gap:0.8rem;border-top:1px solid color-mix(in oklab, var(--ink-950) 22%, transparent);animation:panel-enter 240ms ease-out both
+}.insight-label{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.5rem 1rem
+}.insight-category,
+.insight-date{color:var(--accent-readable);font-size:0.75rem;font-weight:700;letter-spacing:0.11em;text-transform:uppercase
+}.insight-row h3{margin-bottom:0.6rem;font-family:var(--font-display);font-size:1.7rem;font-weight:500;line-height:1.1
+}.insight-row p{max-width:43rem;margin-bottom:0;font-size:0.88rem;line-height:1.7
+}.contact-grid{display:grid;gap:4rem
+}.contact-copy h2{margin-bottom:1.5rem
+}.contact-copy > p{max-width:32rem;line-height:1.75
+}.direct-contact{margin-block:2.5rem 1.5rem;display:grid;gap:0.85rem
+}.direct-contact a,
+.direct-contact > span{min-height:32px;display:flex;align-items:center;gap:0.75rem;font-size:0.83rem
+}.direct-contact a{width:fit-content;color:var(--accent);transition:color 180ms ease-out
+}.direct-contact a:hover{color:var(--accent)
+}.direct-contact svg{color:var(--accent);flex-shrink:0
+}.whatsapp-link{min-height:48px;width:fit-content;display:inline-flex;align-items:center;gap:0.65rem;color:var(--accent);font-size:0.77rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase
+}.contact-form{padding:1.5rem;background:var(--surface-light);color:var(--text-on-light)
+}.form-heading{margin-bottom:2rem
+}.form-heading h3{margin-bottom:0.35rem;font-family:var(--font-display);font-size:2rem;font-weight:500;line-height:1.1
+}.form-heading > span{font-size:0.75rem
+}.form-row{display:grid;gap:1.25rem
+}.contact-form label{display:block;margin-bottom:1.35rem;font-size:0.75rem;font-weight:600;letter-spacing:0.055em;text-transform:uppercase
+}.contact-form label > span{font-weight:400;text-transform:none
+}.contact-form input:not([type='checkbox']),
+.contact-form select,
+.contact-form textarea{width:100%;min-height:48px;margin-top:0.45rem;padding:0.7rem 0;border:0;border-bottom:1px solid color-mix(in oklab, var(--ink-950) 32%, transparent);border-radius:0;background:transparent;color:var(--text-on-light);font-size:0.9rem;font-weight:400;letter-spacing:0;line-height:1.5;text-transform:none;transition:border-color 180ms ease-out
+}.contact-form textarea{min-height:7rem;resize:vertical
+}.contact-form select{color-scheme:light
+}.contact-form input::placeholder,
+.contact-form textarea::placeholder{color:var(--text-on-light);opacity:0.62
+}.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{border-color:var(--accent-readable);outline:none
+}.contact-form input:focus-visible,
+.contact-form select:focus-visible,
+.contact-form textarea:focus-visible{outline:2px solid var(--accent-readable);outline-offset:4px
+}.contact-form .privacy-check{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.75rem;font-weight:400;letter-spacing:0;line-height:1.6;text-transform:none
+}.privacy-check input{width:20px;height:20px;margin:0.15rem 0 0;flex-shrink:0;accent-color:var(--accent-readable)
+}.privacy-check a{color:var(--accent-readable);text-decoration:underline;text-underline-offset:3px
+}.form-submit{width:100%
+}.form-success{margin-top:1.5rem;padding:1.25rem;display:flex;align-items:flex-start;gap:0.85rem;border:1px solid color-mix(in oklab, var(--accent) 55%, transparent);animation:panel-enter 240ms ease-out both
+}.form-success > svg{flex-shrink:0;color:var(--accent)
+}.form-success strong{display:block;margin-bottom:0.35rem;font-size:0.86rem
+}.form-success p{margin-bottom:0.65rem;font-size:0.78rem
+}.form-success a{min-height:36px;display:inline-flex;align-items:center;gap:0.45rem;color:var(--accent-readable);font-size:0.75rem;font-weight:700;text-transform:uppercase
+}.site-footer{padding-block:3rem 1.5rem;background:var(--ink-900);color:var(--text-on-dark)
+}.footer-top{display:grid;gap:2rem;padding-bottom:2.5rem
+}.footer-top > p{max-width:28rem;margin-bottom:0;font-size:0.8rem
+}.back-top{min-height:44px;width:fit-content;display:inline-flex;align-items:center;gap:0.5rem;color:var(--accent);font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase
+}.footer-bottom{padding-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.75rem 1.5rem;border-top:1px solid color-mix(in oklab, var(--paper-100) 16%, transparent);font-size:0.75rem;letter-spacing:0.04em
+}.footer-bottom a{min-height:32px;display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:3px
+}@keyframes intro-brand-in{from{opacity:0;transform:translateY(22px) scale(0.94) }to{opacity:1;transform:translateY(0) scale(1) }
+}@keyframes intro-rule-in{from{opacity:0;transform:scaleX(0) }to{opacity:0.65;transform:scaleX(1) }
+}@keyframes intro-media-in{from{opacity:0;transform:scale(1.08) }to{opacity:0.12;transform:scale(1) }
+}
