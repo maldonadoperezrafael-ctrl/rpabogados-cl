@@ -1,0 +1,47 @@
+.regional-compact .region-places a svg{flex-shrink:0;color:var(--accent);transition:transform 180ms ease-out
+}.regional-compact .region-places a:hover{color:var(--accent)
+}.regional-compact .region-places a:hover svg{transform:translate(2px, -2px)
+}.regional-compact .radio-feature h3{font-size:clamp(2.8rem, 6vw, 4.25rem)
+}.insights-section{padding-block:4rem
+}.insights-top{gap:1.25rem
+}.insights-top h2{font-size:clamp(2.35rem, 5vw, 4rem)
+}.insights-status{margin-top:1.25rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.45rem 1.5rem;color:color-mix(in oklab, var(--text-on-light) 68%, transparent);font-size:0.68rem;font-weight:600;letter-spacing:0.075em;line-height:1.5;text-transform:uppercase
+}.insights-status > span:first-child{display:inline-flex;align-items:center;gap:0.55rem;color:var(--accent-readable)
+}.insights-status i{width:0.38rem;height:0.38rem;display:inline-block;background:var(--accent-readable)
+}.insights-section .prototype-note{max-width:48rem;margin-block:0.7rem 1.4rem;color:color-mix(in oklab, var(--text-on-light) 64%, transparent);font-size:0.72rem;line-height:1.6
+}.insight-list .insight-row{opacity:0;transform:translateY(20px);animation:none
+}.insight-list.is-visible .insight-row{animation:insight-row-in 680ms cubic-bezier(0.22, 1, 0.36, 1) both;animation-delay:calc(var(--insight-index) * 80ms)
+}.insight-row{position:relative;padding-block:1.2rem
+}.insight-content{min-width:0
+}.insight-row h3{max-width:55rem;margin-bottom:0.45rem;font-size:clamp(1.35rem, 2vw, 1.7rem);letter-spacing:-0.018em;line-height:1.15
+}.insight-row h3 a{transition:color 200ms ease-out
+}.insight-row h3 a svg{margin-left:0.45rem;display:inline-block;vertical-align:0.03em;opacity:0.45;transform:translate(-3px, 3px);transition:opacity 200ms ease-out, transform 240ms cubic-bezier(0.22, 1, 0.36, 1)
+}.insight-row h3 a:hover,
+.insight-row h3 a:focus-visible{color:var(--accent-readable)
+}.insight-row h3 a:hover svg,
+.insight-row h3 a:focus-visible svg{opacity:1;transform:translate(0, 0)
+}.insight-row p{max-width:52rem;color:color-mix(in oklab, var(--text-on-light) 78%, transparent);font-size:0.84rem;line-height:1.58
+}.insight-detail{margin-top:0.55rem;display:flex;flex-wrap:wrap;align-items:center;gap:0.25rem 1.25rem;color:color-mix(in oklab, var(--text-on-light) 60%, transparent);font-size:0.67rem;font-weight:600;letter-spacing:0.065em;line-height:1.5;text-transform:uppercase
+}.insight-detail a{min-height:36px;display:inline-flex;align-items:center;gap:0.3rem;color:var(--accent-readable)
+}.insight-detail a:hover{text-decoration:underline;text-underline-offset:0.25rem
+}.insight-date{color:color-mix(in oklab, var(--text-on-light) 58%, transparent);font-size:0.66rem;font-weight:500;letter-spacing:0.04em;line-height:1.5;text-transform:none;white-space:nowrap
+}.insight-empty{margin:0;padding-block:2rem;border-top:1px solid color-mix(in oklab, var(--ink-950) 22%, transparent)
+}.insights-more{min-height:44px;margin-top:0.85rem;padding:0;display:inline-flex;align-items:center;gap:0.45rem;border:0;background:transparent;color:var(--accent-readable);font-size:0.7rem;font-weight:700;letter-spacing:0.065em;text-transform:uppercase
+}.insights-more svg{transition:transform 180ms ease-out
+}.insights-more:hover{text-decoration:underline;text-underline-offset:0.3rem
+}.insights-more.is-expanded svg{transform:rotate(180deg)
+}@keyframes insight-row-in{from{opacity:0;transform:translateY(20px) }to{opacity:1;transform:translateY(0) }
+}@media (min-width: 40rem){.regional-compact .region-places{grid-template-columns:repeat(2, minmax(0, 1fr))
+  }
+}@media (min-width: 64rem){.regional-compact .regional-grid{grid-template-columns:minmax(0, 1fr) minmax(20rem, 0.9fr);gap:7rem
+  }.regional-compact .radio-feature{padding-top:2rem
+  }.insights-section{padding-block:5.5rem
+  }.insights-top{gap:2rem
+  }
+}@media (prefers-reduced-motion: reduce){.insight-list .insight-row,
+  .insight-list.is-visible .insight-row{opacity:1;transform:none;animation:none
+  }.insight-row h3 a,
+  .insight-row h3 a svg,
+  .insights-more svg{transition:none
+  }
+}
