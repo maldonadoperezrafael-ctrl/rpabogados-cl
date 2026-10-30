@@ -4,63 +4,139 @@
 
 @layer base {
   :root {
+    /* Primitivos cromáticos: superficies originales y acento terracota */
     --ink-950: oklch(0.19 0.004 85);
     --ink-900: oklch(0.23 0.005 85);
     --paper-100: oklch(0.97 0.006 90);
     --warm-200: oklch(0.94 0.014 90);
-    --gold-400: oklch(0.84 0.145 94);
-    --gold-650: oklch(0.48 0.085 88);
+    --terracotta-400: #c77e66;
+    --terracotta-700: #93503f;
+    --font-display: 'Newsreader', Georgia, serif;
+    --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* Tokens semánticos */
     --surface-dark: var(--ink-950);
     --surface-light: var(--paper-100);
     --surface-warm: var(--warm-200);
     --text-on-dark: var(--paper-100);
     --text-on-light: var(--ink-950);
-    --accent: var(--gold-400);
-    --accent-readable: var(--gold-650);
+    --accent: var(--terracotta-400);
+    --accent-readable: var(--terracotta-700);
+
+    /* Tokens de componentes */
     --button-background: var(--accent);
     --button-foreground: var(--surface-dark);
-    --focus-ring: var(--gold-650);
+    --focus-ring: var(--terracotta-700);
     --hero-shift: 0px;
+
+    /* Compatibilidad del sistema de componentes */
     --background: 48 20% 96%;
     --foreground: 0 0% 10%;
     --card: 48 20% 96%;
     --card-foreground: 0 0% 10%;
-    --popover: 48 20% 96%;
+    --popover: 0 0% 10%;
     --popover-foreground: 48 20% 96%;
-    --primary: 48 89% 62%;
+    --primary: 0 0% 72%;
     --primary-foreground: 0 0% 10%;
     --secondary: 45 17% 93%;
     --secondary-foreground: 0 0% 10%;
     --muted: 45 17% 93%;
-    --muted-foreground: 40 4% 32%;
+    --muted-foreground: 0 0% 10%;
     --border: 40 7% 75%;
     --input: 40 7% 75%;
-    --ring: 48 89% 62%;
+    --ring: 207 73% 17%;
     --radius: 0.125rem;
   }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; background: var(--surface-dark); }
-  html.lenis, html.lenis body { height: auto; }
-  .lenis.lenis-smooth { scroll-behavior: auto !important; }
-  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-  .lenis.lenis-stopped { overflow: hidden; }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    background: var(--surface-dark);
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
   body {
     margin: 0;
     min-width: 20rem;
     background: var(--surface-light);
     color: var(--text-on-light);
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--font-body);
     font-size: 16px;
     line-height: 1.65;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
-  button, input, textarea, select { font: inherit; }
-  button, a, select { -webkit-tap-highlight-color: transparent; }
-  button { cursor: pointer; }
-  a { color: inherit; text-decoration: none; }
-  img { display: block; max-width: 100%; }
-  ::selection { background: var(--accent); color: var(--text-on-light); }
-  :focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 4px; }
-  h1, h2, h3, p { margin-top: 0; }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button,
+  a,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--text-on-light);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 4px;
+  }
+
+  .section-dark :focus-visible,
+  .site-header :focus-visible,
+  .hero :focus-visible,
+  .site-footer :focus-visible,
+  .brand-intro :focus-visible,
+  .mobile-menu :focus-visible {
+    outline-color: var(--accent);
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
 }
