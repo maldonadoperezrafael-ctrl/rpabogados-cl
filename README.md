@@ -1,48 +1,25 @@
 # RP Abogados · rpabogados.cl
 
-Sitio del estudio jurídico RP Abogados: Astro 5 + Tailwind, publicado en Cloudflare Pages.
-Las páginas son estáticas (servidas desde la caché de Cloudflare); solo `/api/contacto` corre en el servidor.
+Sitio de RP Abogados para la Región Metropolitana y la Región de O’Higgins, publicado con React, TypeScript, Vite y Cloudflare Pages.
 
-## Cómo se trabaja
-
-1. **Nunca editar `main` directo** (ni desde el editor web de GitHub): todo cambio va en una rama y un Pull Request.
-2. Cada rama genera un **preview** automático en Cloudflare (`<rama>.rpabogados.pages.dev`), que se revisa en el navegador.
-3. El PR corre las pruebas (workflow **Pruebas**). Con el preview aprobado y las pruebas en verde, se hace merge.
-4. El merge a `main` publica en **rpabogados.cl**.
-
-## Dónde se cambia cada cosa
-
-| Qué | Dónde |
-| --- | --- |
-| Datos del estudio (dirección, teléfono, correos, socios, horario, áreas) | `src/lib/sitio.ts` — una sola fuente para footer, Google y privacidad |
-| Destinatario del formulario por área | `src/lib/contacto.ts` (`AREAS`, `COPIA_SIEMPRE`) |
-| Textos de la portada, áreas, socios y Actualidad | `src/pages/index.astro` |
-| Páginas locales (Santiago, VI Región, Cardenal Caro, Pichilemu) | `src/pages/*.astro` |
-| Política de privacidad | `src/pages/privacidad.astro` |
-| Logos | `src/assets/logos/*.svg` (se insertan con `src/components/Logo.astro`) |
-| Colores y tipografías | `tailwind.config.mjs` (`oro`, `oro-oscuro`, `tinta`, `font-cormorant`) |
-| Cabeceras de seguridad y caché | `public/_headers` |
-
-**Colores:** `oro` (#C5A880) solo sobre fondos oscuros; sobre blanco o gris claro usar `oro-oscuro` (#7A5C2E) para cumplir el contraste WCAG AA.
-**Imágenes:** en `public/fotos/`, en formato WebP y al ancho en que se muestran.
-
-## Formulario de contacto
-
-`/api/contacto` valida los datos, filtra spam y envía el correo con [Resend](https://resend.com). Requiere en Cloudflare Pages → Settings → Variables:
-
-- `RESEND_API_KEY` (secreta): clave de Resend, con el dominio `rpabogados.cl` verificado.
-- `CONTACTO_REMITENTE` (opcional): por defecto `Sitio web RP Abogados <formulario@rpabogados.cl>`.
-
-Sin la clave, el formulario avisa que el envío en línea no está habilitado y ofrece correo y WhatsApp.
-
-## Comandos
+## Desarrollo y compilación
 
 ```bash
-pnpm install        # dependencias (pnpm 9, ver packageManager)
-pnpm dev            # servidor local en http://localhost:4321
-pnpm build          # build de producción en dist/
-pnpm test           # pruebas unitarias del formulario
-BASE_URL=https://<rama>.rpabogados.pages.dev pnpm test:e2e   # pruebas de navegador contra un preview
+npm install
+npm run check
+npm run build
 ```
 
-`E2E_FORMULARIO=1` agrega un envío real del formulario (si el sitio tiene `RESEND_API_KEY`, llega un correo).
+La compilación se genera en `dist/`. Las rutas de React se sirven mediante `public/_redirects` y las cabeceras de seguridad están en `public/_headers`.
+
+## Contacto
+
+El alojamiento público es estático. El formulario valida los campos y prepara un mensaje dirigido a `contacto@rpabogados.cl`; el visitante debe abrirlo en su correo, revisarlo y enviarlo. La interfaz no afirma que la solicitud se haya enviado o registrado antes de ese paso. No se utiliza almacenamiento del navegador como sustituto de una base de datos.
+
+## Editorial
+
+`npm run update:insights` actualiza `src/data/actualidad.json` con Fallos del Poder Judicial y Prensa de El Mostrador. El proceso valida URLs, descarta contenido irrelevante, deduplica y conserva el último contenido válido como respaldo. Los artículos de Análisis RP sólo se agregan con autoría, revisión profesional y fuentes verificables.
+
+## Recuperación
+
+La rama `respaldo-pre-terracota-20261030` conserva el estado de producción anterior a esta publicación.
