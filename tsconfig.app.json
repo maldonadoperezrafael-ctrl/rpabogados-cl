@@ -5,12 +5,10 @@
     "useDefineForClassFields": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "types": ["vite/client"],
+    "types": ["vite/client", "node"],
     "skipLibCheck": true,
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
+    "paths": { "@/*": ["./src/*"] },
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
@@ -24,5 +22,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src/main.tsx"]
+  "include": ["src"]
 }

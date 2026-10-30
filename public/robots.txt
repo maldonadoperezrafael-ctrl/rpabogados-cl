@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /api/
 
-Sitemap: https://rpabogados.cl/sitemap.xml
+Sitemap: https://www.rpabogados.cl/sitemap.xml
